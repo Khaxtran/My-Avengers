@@ -11,9 +11,6 @@
 		313216E627743A1B00775BB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313216E527743A1B00775BB4 /* ContentView.swift */; };
 		313216E827743A1D00775BB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216E727743A1D00775BB4 /* Assets.xcassets */; };
 		313216EB27743A1D00775BB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216EA27743A1D00775BB4 /* Preview Assets.xcassets */; };
-		313216F527743A1D00775BB4 /* My_AvengersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313216F427743A1D00775BB4 /* My_AvengersTests.swift */; };
-		313216FF27743A1D00775BB4 /* My_AvengersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313216FE27743A1D00775BB4 /* My_AvengersUITests.swift */; };
-		3132170127743A1D00775BB4 /* My_AvengersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132170027743A1D00775BB4 /* My_AvengersUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +37,7 @@
 		313216E727743A1D00775BB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		313216EA27743A1D00775BB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		313216F027743A1D00775BB4 /* My AvengersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		313216F427743A1D00775BB4 /* My_AvengersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_AvengersTests.swift; sourceTree = "<group>"; };
 		313216FA27743A1D00775BB4 /* My AvengersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		313216FE27743A1D00775BB4 /* My_AvengersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_AvengersUITests.swift; sourceTree = "<group>"; };
-		3132170027743A1D00775BB4 /* My_AvengersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_AvengersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				313216E227743A1B00775BB4 /* My Avengers */,
-				313216F327743A1D00775BB4 /* My AvengersTests */,
-				313216FD27743A1D00775BB4 /* My AvengersUITests */,
 				313216E127743A1B00775BB4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,23 +100,6 @@
 				313216EA27743A1D00775BB4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		313216F327743A1D00775BB4 /* My AvengersTests */ = {
-			isa = PBXGroup;
-			children = (
-				313216F427743A1D00775BB4 /* My_AvengersTests.swift */,
-			);
-			path = "My AvengersTests";
-			sourceTree = "<group>";
-		};
-		313216FD27743A1D00775BB4 /* My AvengersUITests */ = {
-			isa = PBXGroup;
-			children = (
-				313216FE27743A1D00775BB4 /* My_AvengersUITests.swift */,
-				3132170027743A1D00775BB4 /* My_AvengersUITestsLaunchTests.swift */,
-			);
-			path = "My AvengersUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +241,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				313216F527743A1D00775BB4 /* My_AvengersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +248,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				313216FF27743A1D00775BB4 /* My_AvengersUITests.swift in Sources */,
-				3132170127743A1D00775BB4 /* My_AvengersUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
