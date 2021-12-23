@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 class GridViewModel: ObservableObject {
     @Published var items = 0..<10
@@ -21,7 +22,7 @@ class GridViewModel: ObservableObject {
     
     
     func fetchHero() {
-        let baseUrl = URL(string: "https://www.superheroapi.com/api.php/4632428266824459/620")!
+        let baseUrl = URL(string: "https://www.superheroapi.com/api.php/4632428266824459/2")!
         
         URLSession.shared.request(
             url: baseUrl,
@@ -130,9 +131,10 @@ struct SearchResults: View {
         ],spacing: 12, content: {
             ForEach(viewModel.results, id: \.self) { hero in
                 VStack(alignment: .center) {
-                    Spacer()
+                    KFImage(URL(string: hero.image.url))
+                        .resizable()
+                        .scaledToFill()
                         .frame(width: 200, height: 200)
-                        .background(Color.blue)
                         .cornerRadius(15)
                     Text(hero.name)
                         .font(.system(size: 20, weight: .semibold))
@@ -144,7 +146,8 @@ struct SearchResults: View {
                                 .font(.system(size: 15, weight: .semibold))
                             Text("\(hero.appearance.gender)")
                                 .font(.system(size: 15))
-                        }.frame(width: 180, height: 15, alignment: .topLeading)
+                        }.frame(maxWidth: .infinity, maxHeight: 15, alignment: .topLeading)
+                            .padding(.horizontal)
                     }
                     VStack {
                         HStack {
@@ -152,7 +155,8 @@ struct SearchResults: View {
                                 .font(.system(size: 15, weight: .semibold))
                             Text("\(hero.appearance.race)")
                                 .font(.system(size: 15))
-                        }.frame(width: 180, height: 15, alignment: .topLeading)
+                        }.frame(maxWidth: .infinity, maxHeight: 15, alignment: .topLeading)
+                            .padding(.horizontal)
                     }
                     VStack {
                         HStack {
@@ -160,7 +164,8 @@ struct SearchResults: View {
                                 .font(.system(size: 15, weight: .semibold))
                             Text("\(hero.biography.publisher)")
                                 .font(.system(size: 15))
-                        }.frame(width: 180, height: 15, alignment: .topLeading)
+                        }.frame(maxWidth: .infinity, maxHeight: 15, alignment: .topLeading)
+                            .padding(.horizontal)
                     }
                 }
                 .frame(width: 250, height: 350, alignment: .center)
