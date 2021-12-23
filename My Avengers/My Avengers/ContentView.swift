@@ -18,18 +18,8 @@ struct ContentView: View {
             ScrollView {
                 
                 SearchBar(searchText: $searchText, isSearching: $isSearching)
+                SearchResults()
                 
-                ForEach((0..<20).filter({ "\($0)".contains(searchText) || searchText.isEmpty }), id: \.self) { num in
-                    
-                    HStack {
-                        Text("\(num)")
-                        Spacer()
-                    }.padding()
-                    
-                    Divider()
-                        .background(Color(.systemGray4))
-                        .padding(.leading)
-                }
             }
             .navigationTitle("Search")
         }
@@ -96,3 +86,34 @@ struct SearchBar: View {
         }
     }
 }
+
+struct SearchResults: View {
+    var body: some View {
+        LazyVGrid(columns: [
+            GridItem(.flexible(minimum: 100, maximum: 200), spacing: 12),
+            GridItem(.flexible(minimum: 100, maximum: 200), spacing: 12),
+            GridItem(.flexible(minimum: 100, maximum: 200))
+        ],spacing: 12, content: {
+            ForEach(0..<35, id: \.self) { num in
+                VStack(alignment: .leading) {
+                    Spacer()
+                        .frame(width: 100, height: 100)
+                        .background(Color.blue)
+                        .cornerRadius(15)
+                    Text("Hero name")
+                        .font(.system(size: 20, weight: .semibold))
+                    Text("Gender")
+                        .font(.system(size: 15, weight: .regular))
+                    Text("Race")
+                        .font(.system(size: 15, weight: .regular))
+                    Text("Universe")
+                        .font(.system(size: 15, weight: .regular))
+                }
+                .padding()
+                .background(Color.red)
+            }
+        
+        }).padding(.horizontal, 20)
+    }
+}
+
