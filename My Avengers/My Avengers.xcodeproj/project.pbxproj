@@ -11,6 +11,9 @@
 		313216E627743A1B00775BB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313216E527743A1B00775BB4 /* ContentView.swift */; };
 		313216E827743A1D00775BB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216E727743A1D00775BB4 /* Assets.xcassets */; };
 		313216EB27743A1D00775BB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216EA27743A1D00775BB4 /* Preview Assets.xcassets */; };
+		31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E1F27746EEA00C71E3A /* GenericFetcher.swift */; };
+		31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E23277474A300C71E3A /* HeroFetcher.swift */; };
+		31983E27277474DA00C71E3A /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E26277474DA00C71E3A /* HeroModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		313216EA27743A1D00775BB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		313216F027743A1D00775BB4 /* My AvengersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313216FA27743A1D00775BB4 /* My AvengersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		31983E1F27746EEA00C71E3A /* GenericFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericFetcher.swift; sourceTree = "<group>"; };
+		31983E23277474A300C71E3A /* HeroFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFetcher.swift; sourceTree = "<group>"; };
+		31983E26277474DA00C71E3A /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,9 @@
 				313216E327743A1B00775BB4 /* My_AvengersApp.swift */,
 				313216E527743A1B00775BB4 /* ContentView.swift */,
 				313216E727743A1D00775BB4 /* Assets.xcassets */,
+				31983E25277474CD00C71E3A /* Model */,
+				31983E2127746EF800C71E3A /* Fetcher */,
+				31983E282774762900C71E3A /* SupportFiles */,
 				313216E927743A1D00775BB4 /* Preview Content */,
 			);
 			path = "My Avengers";
@@ -100,6 +109,38 @@
 				313216EA27743A1D00775BB4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		31983E2127746EF800C71E3A /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				31983E1F27746EEA00C71E3A /* GenericFetcher.swift */,
+				31983E222774749300C71E3A /* HeroFetcher */,
+			);
+			path = Fetcher;
+			sourceTree = "<group>";
+		};
+		31983E222774749300C71E3A /* HeroFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				31983E23277474A300C71E3A /* HeroFetcher.swift */,
+			);
+			path = HeroFetcher;
+			sourceTree = "<group>";
+		};
+		31983E25277474CD00C71E3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31983E26277474DA00C71E3A /* HeroModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		31983E282774762900C71E3A /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				313216E627743A1B00775BB4 /* ContentView.swift in Sources */,
+				31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */,
 				313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */,
+				31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */,
+				31983E27277474DA00C71E3A /* HeroModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

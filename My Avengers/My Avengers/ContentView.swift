@@ -7,6 +7,39 @@
 
 import SwiftUI
 
+class GridViewModel: ObservableObject {
+    @Published var items = 0..<10
+    @Published var results = [Hero]()
+    
+    init() {
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+            self.items = 0..<15
+        }
+        
+        fetchHero()
+    }
+    
+    
+    func fetchHero() {
+        let baseUrl = URL(string: "https://www.superheroapi.com/api.php/4632428266824459/620")!
+        
+        URLSession.shared.request(
+            url: baseUrl,
+            expecting: Hero.self,
+            completion: { result in
+            switch result {
+            case .success(let results):
+                DispatchQueue.main.async {
+                    print(results)
+                    self.results = [results]
+                }
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+}
+
 struct ContentView: View {
     
     @State var searchText = ""
@@ -52,12 +85,12 @@ struct SearchBar: View {
             })
             .overlay(
                 HStack {
-                    Image(systemName: "magnifyingglass")
+                    SwiftUI.Image(systemName: "magnifyingglass")
                     Spacer()
                     
                     if isSearching {
                         Button(action: { searchText = "" }, label: {
-                            Image(systemName: "xmark.circle.fill")
+                            SwiftUI.Image(systemName: "xmark.circle.fill")
                                 .padding(.vertical)
                         })
                     }
@@ -88,32 +121,53 @@ struct SearchBar: View {
 }
 
 struct SearchResults: View {
+    
+    @ObservedObject var viewModel = GridViewModel()
+    
     var body: some View {
         LazyVGrid(columns: [
-            GridItem(.flexible(minimum: 100, maximum: 200), spacing: 12),
-            GridItem(.flexible(minimum: 100, maximum: 200), spacing: 12),
-            GridItem(.flexible(minimum: 100, maximum: 200))
+            GridItem(.flexible(minimum: 200, maximum: 400), spacing: 12, alignment: .center)
         ],spacing: 12, content: {
-            ForEach(0..<35, id: \.self) { num in
-                VStack(alignment: .leading) {
+            ForEach(viewModel.results, id: \.self) { hero in
+                VStack(alignment: .center) {
                     Spacer()
-                        .frame(width: 100, height: 100)
+                        .frame(width: 200, height: 200)
                         .background(Color.blue)
                         .cornerRadius(15)
-                    Text("Hero name")
+                    Text(hero.name)
                         .font(.system(size: 20, weight: .semibold))
-                    Text("Gender")
-                        .font(.system(size: 15, weight: .regular))
-                    Text("Race")
-                        .font(.system(size: 15, weight: .regular))
-                    Text("Universe")
-                        .font(.system(size: 15, weight: .regular))
+                        .frame(width: 200, height: 15, alignment: .top)
+                        .padding(.vertical, 10)
+                    VStack {
+                        HStack {
+                            Text("Gender:")
+                                .font(.system(size: 15, weight: .semibold))
+                            Text("\(hero.appearance.gender)")
+                                .font(.system(size: 15))
+                        }.frame(width: 180, height: 15, alignment: .topLeading)
+                    }
+                    VStack {
+                        HStack {
+                            Text("Race:")
+                                .font(.system(size: 15, weight: .semibold))
+                            Text("\(hero.appearance.race)")
+                                .font(.system(size: 15))
+                        }.frame(width: 180, height: 15, alignment: .topLeading)
+                    }
+                    VStack {
+                        HStack {
+                            Text("Universe:")
+                                .font(.system(size: 15, weight: .semibold))
+                            Text("\(hero.biography.publisher)")
+                                .font(.system(size: 15))
+                        }.frame(width: 180, height: 15, alignment: .topLeading)
+                    }
                 }
-                .padding()
-                .background(Color.red)
+                .frame(width: 250, height: 350, alignment: .center)
+//                .background(Color.red)
             }
         
-        }).padding(.horizontal, 20)
+        }).padding(.vertical, 50)
     }
 }
 
