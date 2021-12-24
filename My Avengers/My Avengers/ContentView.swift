@@ -8,54 +8,60 @@
 import SwiftUI
 import Kingfisher
 
-class GridViewModel: ObservableObject {
-    @Published var items = 0..<10
-    @Published var results = [Hero]()
-    
-    init() {
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
-            self.items = 0..<15
-        }
-        
-        fetchHero()
-    }
-    
-    
-    func fetchHero() {
-        let baseUrl = URL(string: "https://www.superheroapi.com/api.php/4632428266824459/2")!
-        
-        URLSession.shared.request(
-            url: baseUrl,
-            expecting: Hero.self,
-            completion: { result in
-            switch result {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    print(results)
-                    self.results = [results]
-                }
-            case .failure(let error):
-                print(error)
-            }
-        })
-    }
-}
 
 struct ContentView: View {
     
-    @State var searchText = ""
-    @State var isSearching = false
-    @State private var animationAmount = 0
+    @StateObject private var heroListVM = HeroListViewModel()
+    @State private var searchText: String = ""
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                
-                SearchBar(searchText: $searchText, isSearching: $isSearching)
-                SearchResults()
-                
-            }
-            .navigationTitle("Search")
+            List(heroListVM.heros, id: \.heroId) { hero in
+                HStack {
+                    AsyncImage(url: hero.image, content: { image in
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: 120, height: 150)
+                            .cornerRadius(15)
+                    }, placeholder: {
+                        ProgressView()
+                    })
+                    
+                    VStack {
+                        Text(hero.name)
+                            .font(.system(size: 20, weight: .semibold))
+                            .padding(.horizontal)
+                        HStack {
+                            Text("Gender:")
+                                .font(.system(size: 15, weight: .semibold))
+                            Text(hero.gender)
+                                .font(.system(size: 15))
+                        }
+                        HStack {
+                            Text("Race:")
+                                .font(.system(size: 15, weight: .semibold))
+                            Text(hero.race)
+                                .font(.system(size: 15))
+                        }
+                        HStack {
+                            Text("Universe:")
+                                .font(.system(size: 15, weight: .semibold))
+                            Text(hero.universe)
+                                .font(.system(size: 15))
+                        }
+                    }
+                }
+            }.listStyle(.plain)
+                .searchable(text: $searchText)
+                .onChange(of: searchText) { value in
+                    Task.init(){
+                     if !value.isEmpty && value.count > 0 {
+                        await heroListVM.search(name: value)
+                    } else {
+                        heroListVM.heros.removeAll()
+                    }
+                }
+            }.navigationTitle("Heros") 
         }
     }
 }
@@ -66,64 +72,8 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct SearchBar: View {
-    @State var opacity = 1.0
-    @Binding var searchText: String
-    @Binding var isSearching: Bool
-    
-    var body: some View {
-        HStack {
-            HStack {
-                TextField("Search for heros", text: $searchText).padding(.leading, 50)
-                
-            }
-            .padding(.vertical, 10)
-            .background(Color(.systemGray5))
-            .cornerRadius(8)
-            .padding(.horizontal)
-            .onTapGesture(perform: {
-                isSearching = true
-            })
-            .overlay(
-                HStack {
-                    SwiftUI.Image(systemName: "magnifyingglass")
-                    Spacer()
-                    
-                    if isSearching {
-                        Button(action: { searchText = "" }, label: {
-                            SwiftUI.Image(systemName: "xmark.circle.fill")
-                                .padding(.vertical)
-                        })
-                    }
-                    
-                }
-                    .padding(.horizontal, 32)
-                    .foregroundColor(.gray)
-            ).transition(.move(edge: .trailing))
-                .animation(.spring(), value: opacity)
-            
-            if isSearching {
-                Button(action: {
-                    isSearching = false
-                    searchText = ""
-                    
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
-                                                    to: nil, from: nil, for: nil)
-                }, label: {
-                    Text("Cancel")
-                        .padding(.leading, -10)
-                        .padding(.trailing)
-                }).transition(.move(edge: .trailing))
-                    .animation(.spring(), value: opacity)
-            }
-            
-        }
-    }
-}
-
+/*
 struct SearchResults: View {
-    
-    @ObservedObject var viewModel = GridViewModel()
     
     var body: some View {
         LazyVGrid(columns: [
@@ -176,3 +126,4 @@ struct SearchResults: View {
     }
 }
 
+*/

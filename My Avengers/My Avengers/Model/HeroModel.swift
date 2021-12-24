@@ -1,19 +1,25 @@
-//
-//  HeroModel.swift
-//  Avengers
-//
-//  Created by Kha Tran on 19/12/21.
-//
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
+//   let hero = try? newJSONDecoder().decode(Hero.self, from: jsonData)
 
 import Foundation
 
-// MARK: - Welcome
-struct Hero: Codable, Hashable {
-    let response, id, name: String
+// MARK: - Hero
+struct Hero: Codable {
+    let response, resultsFor: String
+    let results: [Result]
+
+    enum CodingKeys: String, CodingKey {
+        case response
+        case resultsFor = "results-for"
+        case results
+    }
+}
+
+// MARK: - Result
+struct Result: Codable {
+    let id, name: String
     let powerstats: Powerstats
     let biography: Biography
     let appearance: Appearance
@@ -23,7 +29,7 @@ struct Hero: Codable, Hashable {
 }
 
 // MARK: - Appearance
-struct Appearance: Codable, Hashable {
+struct Appearance: Codable {
     let gender, race: String
     let height, weight: [String]
     let eyeColor, hairColor: String
@@ -36,7 +42,7 @@ struct Appearance: Codable, Hashable {
 }
 
 // MARK: - Biography
-struct Biography: Codable, Hashable {
+struct Biography: Codable {
     let fullName, alterEgos: String
     let aliases: [String]
     let placeOfBirth, firstAppearance, publisher, alignment: String
@@ -52,7 +58,7 @@ struct Biography: Codable, Hashable {
 }
 
 // MARK: - Connections
-struct Connections: Codable, Hashable {
+struct Connections: Codable {
     let groupAffiliation, relatives: String
 
     enum CodingKeys: String, CodingKey {
@@ -62,18 +68,17 @@ struct Connections: Codable, Hashable {
 }
 
 // MARK: - Image
-struct Image: Codable, Hashable {
+struct Image: Codable {
     let url: String
 }
 
 // MARK: - Powerstats
-struct Powerstats: Codable, Hashable {
+struct Powerstats: Codable {
     let intelligence, strength, speed, durability: String
     let power, combat: String
 }
 
 // MARK: - Work
-struct Work: Codable, Hashable {
+struct Work: Codable {
     let occupation, base: String
 }
-

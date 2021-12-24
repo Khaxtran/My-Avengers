@@ -15,6 +15,9 @@
 		31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E23277474A300C71E3A /* HeroFetcher.swift */; };
 		31983E27277474DA00C71E3A /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E26277474DA00C71E3A /* HeroModel.swift */; };
 		31983E3027753D6600C71E3A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 31983E2F27753D6600C71E3A /* Kingfisher */; };
+		31983E3227754AF900C71E3A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E3127754AF900C71E3A /* WebService.swift */; };
+		31983E3427754FB600C71E3A /* HeroListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E3327754FB600C71E3A /* HeroListViewModel.swift */; };
+		31983E36277586D800C71E3A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E35277586D800C71E3A /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		31983E1F27746EEA00C71E3A /* GenericFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericFetcher.swift; sourceTree = "<group>"; };
 		31983E23277474A300C71E3A /* HeroFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFetcher.swift; sourceTree = "<group>"; };
 		31983E26277474DA00C71E3A /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
+		31983E3127754AF900C71E3A /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		31983E3327754FB600C71E3A /* HeroListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListViewModel.swift; sourceTree = "<group>"; };
+		31983E35277586D800C71E3A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,8 @@
 				31983E2127746EF800C71E3A /* Fetcher */,
 				31983E282774762900C71E3A /* SupportFiles */,
 				313216E927743A1D00775BB4 /* Preview Content */,
+				31983E3127754AF900C71E3A /* WebService.swift */,
+				31983E35277586D800C71E3A /* String+Extensions.swift */,
 			);
 			path = "My Avengers";
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				31983E26277474DA00C71E3A /* HeroModel.swift */,
+				31983E3327754FB600C71E3A /* HeroListViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,10 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31983E3227754AF900C71E3A /* WebService.swift in Sources */,
 				313216E627743A1B00775BB4 /* ContentView.swift in Sources */,
 				31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */,
 				313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */,
+				31983E36277586D800C71E3A /* String+Extensions.swift in Sources */,
 				31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */,
+				31983E3427754FB600C71E3A /* HeroListViewModel.swift in Sources */,
 				31983E27277474DA00C71E3A /* HeroModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
