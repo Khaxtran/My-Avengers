@@ -44,7 +44,7 @@ struct HomeView: View {
                             SwiftUI.Image(systemName: tabBarImages[num])
                                 .font(.system(size: 24, weight: .bold))
                                 .foregroundColor(selectedIndex == num ? Color(.label) :
-                                                        .init(white: 0.3))
+                                                        .init(white: 0.5))
                         }
                         Spacer()
                     })

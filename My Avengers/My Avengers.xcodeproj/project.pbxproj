@@ -21,6 +21,8 @@
 		31983E382775904500C71E3A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E372775904500C71E3A /* HomeView.swift */; };
 		31983E3A2775A16400C71E3A /* MyAvengersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E392775A16400C71E3A /* MyAvengersView.swift */; };
 		31983E3C2775A34400C71E3A /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E3B2775A34400C71E3A /* CreateTeamView.swift */; };
+		31983E3E2775B1EE00C71E3A /* MyAvengersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E3D2775B1EE00C71E3A /* MyAvengersListViewModel.swift */; };
+		31983E402777FD1B00C71E3A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E3F2777FD1B00C71E3A /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		31983E372775904500C71E3A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		31983E392775A16400C71E3A /* MyAvengersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAvengersView.swift; sourceTree = "<group>"; };
 		31983E3B2775A34400C71E3A /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
+		31983E3D2775B1EE00C71E3A /* MyAvengersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAvengersListViewModel.swift; sourceTree = "<group>"; };
+		31983E3F2777FD1B00C71E3A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 				313216E927743A1D00775BB4 /* Preview Content */,
 				31983E3127754AF900C71E3A /* WebService.swift */,
 				31983E35277586D800C71E3A /* String+Extensions.swift */,
+				31983E3F2777FD1B00C71E3A /* UIColor+Extensions.swift */,
 			);
 			path = "My Avengers";
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			children = (
 				31983E26277474DA00C71E3A /* HeroModel.swift */,
 				31983E3327754FB600C71E3A /* HeroListViewModel.swift */,
+				31983E3D2775B1EE00C71E3A /* MyAvengersListViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,12 +308,14 @@
 				31983E382775904500C71E3A /* HomeView.swift in Sources */,
 				31983E3A2775A16400C71E3A /* MyAvengersView.swift in Sources */,
 				31983E3227754AF900C71E3A /* WebService.swift in Sources */,
+				31983E402777FD1B00C71E3A /* UIColor+Extensions.swift in Sources */,
 				31983E3C2775A34400C71E3A /* CreateTeamView.swift in Sources */,
 				313216E627743A1B00775BB4 /* SearchView.swift in Sources */,
 				31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */,
 				313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */,
 				31983E36277586D800C71E3A /* String+Extensions.swift in Sources */,
 				31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */,
+				31983E3E2775B1EE00C71E3A /* MyAvengersListViewModel.swift in Sources */,
 				31983E3427754FB600C71E3A /* HeroListViewModel.swift in Sources */,
 				31983E27277474DA00C71E3A /* HeroModel.swift in Sources */,
 			);
