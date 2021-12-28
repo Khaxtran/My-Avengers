@@ -47,7 +47,6 @@ struct MyAvengersView: View {
                     }
                 })
             }
-            .background(Color.white)
         }
     }
 }

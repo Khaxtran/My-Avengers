@@ -10,45 +10,59 @@ import Kingfisher
 
 
 struct SearchView: View {
-    
-    @StateObject public var heroListVM = HeroListViewModel()
+    @EnvironmentObject var hero: HeroListViewModel
     @State public var searchText: String = ""
+    @State var isRecruit : Bool = false
     
     var body: some View {
         NavigationView {
-            List(heroListVM.heros, id: \.heroId) { hero in
-                NavigationLink(hero.name, destination: {
+            List(hero.heros, id: \.id) { result in
+                NavigationLink(result.name, destination: {
                     ScrollView {
                         
-                        KFImage(hero.image)
+                        KFImage(result.image)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 250, height: 300)
                             .cornerRadius(5)
-                        Text(hero.name)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.black, lineWidth: 2))
+                        Text(result.name)
                             .font(.system(size: 20, weight: .semibold))
                             .padding(.horizontal)
+                        
+                        Button(action: {
+                            self.isRecruit.toggle()
+                            if (self.isRecruit == true) {
+                                hero.add(hero: result)
+                            } else {
+                                hero.remove(hero: result)
+                            }
+                        }) {
+                            Text(self.isRecruit == true ? "Recruited" : "Recruit")
+                                .font(.headline)
+                        }
                     
                         HStack {
                             VStack {
                                 SwiftUI.Image("power")
                                     .resizable()
                                     .frame(width: 40, height: 40, alignment: .center)
-                                Text(hero.power)
+                                Text(result.power)
                                     .frame(maxWidth: .infinity, alignment: .center)
                             }
                             VStack {
                                 SwiftUI.Image("intelligence")
                                     .resizable()
                                     .frame(width: 50, height: 50, alignment: .center)
-                                Text(hero.intelligence)
+                                Text(result.intelligence)
                                     .frame(maxWidth: .infinity, alignment: .center)
                             }
                             VStack {
                                 SwiftUI.Image("strength")
                                     .resizable()
                                     .frame(width: 50, height: 50, alignment: .center)
-                                Text(hero.strength)
+                                Text(result.strength)
                                     .frame(maxWidth: .infinity, alignment: .center)
                             }
                             
@@ -56,7 +70,7 @@ struct SearchView: View {
                                 SwiftUI.Image("speed")
                                     .resizable()
                                     .frame(width: 50, height: 50, alignment: .center)
-                                Text(hero.speed)
+                                Text(result.speed)
                                     .frame(maxWidth: .infinity, alignment: .center)
                             }
                             
@@ -64,14 +78,14 @@ struct SearchView: View {
                                 SwiftUI.Image("durability")
                                     .resizable()
                                     .frame(width: 50, height: 50, alignment: .center)
-                                Text(hero.durability)
+                                Text(result.durability)
                                     .frame(maxWidth: .infinity, alignment: .center)
                             }
                             VStack {
                                 SwiftUI.Image("combat")
                                     .resizable()
                                     .frame(width: 50, height: 50, alignment: .center)
-                                Text(hero.combat)
+                                Text(result.combat)
                                     .frame(maxWidth: .infinity, alignment: .center)
                             }
                             
@@ -80,19 +94,19 @@ struct SearchView: View {
                             HStack {
                                 Text("Gender:")
                                     .font(.system(size: 15, weight: .semibold))
-                                Text(hero.gender)
+                                Text(result.gender)
                                     .font(.system(size: 15))
                             }
                             HStack {
                                 Text("Race:")
                                     .font(.system(size: 15, weight: .semibold))
-                                Text(hero.race)
+                                Text(result.race)
                                     .font(.system(size: 15))
                             }
                             HStack {
                                 Text("Universe:")
                                     .font(.system(size: 15, weight: .semibold))
-                                Text(hero.universe)
+                                Text(result.universe)
                                     .font(.system(size: 15))
                             }
                         }
@@ -104,9 +118,9 @@ struct SearchView: View {
                 .onChange(of: searchText) { value in
                     Task.init(){
                      if !value.isEmpty && value.count > 1 {
-                        await heroListVM.search(name: value)
+                        await hero.search(name: value)
                     } else {
-                        heroListVM.heros.removeAll()
+                        hero.heros.removeAll()
                         }
                     }
             }.navigationTitle("Heros")
@@ -117,5 +131,6 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
+            .environmentObject(HeroListViewModel())
     }
 }

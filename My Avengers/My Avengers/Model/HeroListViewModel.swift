@@ -10,8 +10,11 @@ import Foundation
 @MainActor
 class HeroListViewModel: ObservableObject {
     
-    @Published var heros: [HeroViewModel] = []
+    @Published var heros = [HeroViewModel]()
+    @Published var recruits = [HeroViewModel]()
     
+    
+    //Search
     func search(name: String) async {
         do {
             let heros = try await WebService().fetchHero(searchTerm: name)
@@ -20,15 +23,26 @@ class HeroListViewModel: ObservableObject {
             print(error)
         }
     }
+    
+    //Recruit
+    func add(hero: HeroViewModel) {
+        recruits.append(hero)
+    }
+    
+    func remove(hero: HeroViewModel) {
+        if let index = recruits.firstIndex(of: hero) {
+            recruits.remove(at: index)
+        }
+    }
 }
 
-struct HeroViewModel {
+struct HeroViewModel: Equatable, Identifiable {
     
     let hero: Result
     
 // GENERAL INFO
     
-    var heroId: String {
+    var id: String {
         hero.id
     }
     
