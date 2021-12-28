@@ -24,7 +24,6 @@ struct SearchView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 250, height: 300)
-                            .cornerRadius(5)
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.black, lineWidth: 2))
                         Text(result.name)
