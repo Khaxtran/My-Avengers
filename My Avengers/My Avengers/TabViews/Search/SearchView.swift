@@ -12,9 +12,15 @@ import Kingfisher
 struct SearchView: View {
     
     var body: some View {
-        NavigationView {
-            SearchResultsView()
+        VStack {
+            NavigationView {
+                SearchResultsView()
+            }
+            LoadingView()
+                
         }
+        .ignoresSafeArea(.keyboard)
+        
     }
 }
 
