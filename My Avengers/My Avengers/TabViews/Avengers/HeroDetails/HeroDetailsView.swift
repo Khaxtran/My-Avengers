@@ -17,15 +17,19 @@ struct HeroDetailsView: View {
         
         ForEach(hero.recruits, id: \.id) { hero in
             NavigationLink(destination:
-                            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
-                    HeroBiographyView(heroID: hero)
-                    HeroAppearanceView(heroID: hero)
-                    HeroOccupationView(heroID: hero)
-                                }
-                .padding()
+                            ScrollView {
+                HeroImageView(heroID: hero)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 16) {
+                        HeroBiographyView(heroID: hero)
+                        HeroAppearanceView(heroID: hero)
+                        HeroOccupationView(heroID: hero)
+                    }
+                        .padding()
+                }
             }
-                            
+                            .navigationTitle(hero.name)
+            
                             
             ) {
                 ZStack {
