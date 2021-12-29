@@ -9,6 +9,15 @@
           "revision": "0a2924c703902d444002d017b6e9491c819b1f9f",
           "version": null
         }
+      },
+      {
+        "package": "SmoothGradient",
+        "repositoryURL": "https://github.com/intitni/SmoothGradient",
+        "state": {
+          "branch": null,
+          "revision": "f9d40741e0369f9d44c894bb81f4702e7fc56d00",
+          "version": "0.2.0"
+        }
       }
     ]
   },

@@ -11,6 +11,11 @@
 		313216E627743A1B00775BB4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313216E527743A1B00775BB4 /* SearchView.swift */; };
 		313216E827743A1D00775BB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216E727743A1D00775BB4 /* Assets.xcassets */; };
 		313216EB27743A1D00775BB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216EA27743A1D00775BB4 /* Preview Assets.xcassets */; };
+		3157C59F277BE5B200056A67 /* HeroDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C59E277BE5B200056A67 /* HeroDetailsView.swift */; };
+		3157C5A5277C0ED800056A67 /* SmoothGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 3157C5A4277C0ED800056A67 /* SmoothGradient */; };
+		3157C5A8277C3CC000056A67 /* HeroAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5A7277C3CC000056A67 /* HeroAppearanceView.swift */; };
+		3157C5AA277C41D700056A67 /* HeroBiographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5A9277C41D700056A67 /* HeroBiographyView.swift */; };
+		3157C5AC277C47B800056A67 /* HeroOccupationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5AB277C47B700056A67 /* HeroOccupationView.swift */; };
 		31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E1F27746EEA00C71E3A /* GenericFetcher.swift */; };
 		31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E23277474A300C71E3A /* HeroFetcher.swift */; };
 		31983E27277474DA00C71E3A /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E26277474DA00C71E3A /* HeroModel.swift */; };
@@ -51,6 +56,10 @@
 		313216EA27743A1D00775BB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		313216F027743A1D00775BB4 /* My AvengersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313216FA27743A1D00775BB4 /* My AvengersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3157C59E277BE5B200056A67 /* HeroDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsView.swift; sourceTree = "<group>"; };
+		3157C5A7277C3CC000056A67 /* HeroAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAppearanceView.swift; sourceTree = "<group>"; };
+		3157C5A9277C41D700056A67 /* HeroBiographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroBiographyView.swift; sourceTree = "<group>"; };
+		3157C5AB277C47B700056A67 /* HeroOccupationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroOccupationView.swift; sourceTree = "<group>"; };
 		31983E1F27746EEA00C71E3A /* GenericFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericFetcher.swift; sourceTree = "<group>"; };
 		31983E23277474A300C71E3A /* HeroFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFetcher.swift; sourceTree = "<group>"; };
 		31983E26277474DA00C71E3A /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
@@ -70,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3157C5A5277C0ED800056A67 /* SmoothGradient in Frameworks */,
 				31983E3027753D6600C71E3A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,10 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				313216E327743A1B00775BB4 /* My_AvengersApp.swift */,
-				31983E412778070700C71E3A /* Search */,
 				31983E372775904500C71E3A /* HomeView.swift */,
-				31983E392775A16400C71E3A /* MyAvengersView.swift */,
-				31983E3B2775A34400C71E3A /* RecruitView.swift */,
+				3157C5A0277BE69100056A67 /* TabViews */,
 				31983E25277474CD00C71E3A /* Model */,
 				31983E2127746EF800C71E3A /* Fetcher */,
 				31983E282774762900C71E3A /* SupportFiles */,
@@ -151,6 +159,44 @@
 				31983E472778527200C71E3A /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3157C5A0277BE69100056A67 /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				3157C5A2277BE6CA00056A67 /* Team */,
+				3157C5A1277BE6A900056A67 /* Avengers */,
+				31983E412778070700C71E3A /* Search */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
+		3157C5A1277BE6A900056A67 /* Avengers */ = {
+			isa = PBXGroup;
+			children = (
+				3157C5A6277C3C7F00056A67 /* HeroDetails */,
+				31983E3B2775A34400C71E3A /* RecruitView.swift */,
+			);
+			path = Avengers;
+			sourceTree = "<group>";
+		};
+		3157C5A2277BE6CA00056A67 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				31983E392775A16400C71E3A /* MyAvengersView.swift */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		3157C5A6277C3C7F00056A67 /* HeroDetails */ = {
+			isa = PBXGroup;
+			children = (
+				3157C59E277BE5B200056A67 /* HeroDetailsView.swift */,
+				3157C5A7277C3CC000056A67 /* HeroAppearanceView.swift */,
+				3157C5A9277C41D700056A67 /* HeroBiographyView.swift */,
+				3157C5AB277C47B700056A67 /* HeroOccupationView.swift */,
+			);
+			path = HeroDetails;
 			sourceTree = "<group>";
 		};
 		31983E2127746EF800C71E3A /* Fetcher */ = {
@@ -214,6 +260,7 @@
 			name = "My Avengers";
 			packageProductDependencies = (
 				31983E2F27753D6600C71E3A /* Kingfisher */,
+				3157C5A4277C0ED800056A67 /* SmoothGradient */,
 			);
 			productName = "My Avengers";
 			productReference = 313216E027743A1B00775BB4 /* My Avengers.app */;
@@ -289,6 +336,7 @@
 			mainGroup = 313216D727743A1B00775BB4;
 			packageReferences = (
 				31983E2E27753D6600C71E3A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				3157C5A3277C0ED800056A67 /* XCRemoteSwiftPackageReference "SmoothGradient" */,
 			);
 			productRefGroup = 313216E127743A1B00775BB4 /* Products */;
 			projectDirPath = "";
@@ -338,14 +386,18 @@
 				31983E482778527200C71E3A /* UIImage+Extensions.swift in Sources */,
 				31983E46277851C400C71E3A /* ImageAssetTypes.swift in Sources */,
 				31983E402777FD1B00C71E3A /* UIColor+Extensions.swift in Sources */,
+				3157C5AA277C41D700056A67 /* HeroBiographyView.swift in Sources */,
 				31983E3C2775A34400C71E3A /* RecruitView.swift in Sources */,
 				313216E627743A1B00775BB4 /* SearchView.swift in Sources */,
+				3157C59F277BE5B200056A67 /* HeroDetailsView.swift in Sources */,
 				31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */,
 				313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */,
 				31983E36277586D800C71E3A /* String+Extensions.swift in Sources */,
+				3157C5A8277C3CC000056A67 /* HeroAppearanceView.swift in Sources */,
 				31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */,
 				31983E3427754FB600C71E3A /* HeroListViewModel.swift in Sources */,
 				31983E27277474DA00C71E3A /* HeroModel.swift in Sources */,
+				3157C5AC277C47B800056A67 /* HeroOccupationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +723,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3157C5A3277C0ED800056A67 /* XCRemoteSwiftPackageReference "SmoothGradient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/intitni/SmoothGradient";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 		31983E2E27753D6600C71E3A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -682,6 +742,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3157C5A4277C0ED800056A67 /* SmoothGradient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3157C5A3277C0ED800056A67 /* XCRemoteSwiftPackageReference "SmoothGradient" */;
+			productName = SmoothGradient;
+		};
 		31983E2F27753D6600C71E3A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 31983E2E27753D6600C71E3A /* XCRemoteSwiftPackageReference "Kingfisher" */;
