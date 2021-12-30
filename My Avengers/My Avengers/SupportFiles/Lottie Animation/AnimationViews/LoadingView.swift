@@ -10,7 +10,7 @@ import SwiftUI
 struct LoadingView: View {
     var body: some View {
         VStack {
-            LottieView(filename: "loading-animation")
+            LottieView(filename: "loading-animation", fromFrame: 0, toFrame: 150)
                 .frame(width: 250, height: 250)
         }
     }
