@@ -28,37 +28,34 @@ struct HeroAppearanceView: View {
                     .padding(.vertical, 2)
                 VStack(alignment: .leading, spacing: 2) {
                     HStack {
-                        Text("Gender: ")
+                        Text("Gender: ").fontWeight(.bold)
                         + Text(heroID.gender == "null" ? "Unknown" : heroID.gender)
                     }
                     HStack {
-                        Text("Race: ")
-                        + Text(heroID.race == "null" ? "Unknown" : heroID.race)
-                    }
-                    HStack {
-                        Text("Height: ")
+                        Text("Height: ").fontWeight(.bold)
                         + Text(heroID.height[1] == "null" ? "Unknown" : heroID.height[1])
                     }
                     HStack {
-                        Text("Weight: ")
+                        Text("Weight: ").fontWeight(.bold)
                         + Text(heroID.weight[1] == "null" ? "Unknown" : heroID.weight[1])
                     }
                     HStack {
-                        Text("Eye colour: ")
+                        Text("Eye colour: ").fontWeight(.bold)
                         + Text(heroID.eyeColor == "null" ? "Unknown" : heroID.eyeColor)
                     }
                     HStack {
-                        Text("Hair colour: ")
+                        Text("Hair colour: ").fontWeight(.bold)
                         + Text(heroID.hairColor == "null" ? "Unknown" : heroID.hairColor)
                     }
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .blendMode(.colorDodge)
                 .opacity(0.5)
+                .font(.system(size: 16))
             }
             .padding(.horizontal)
         }
-        .frame(width: 215, height: 250, alignment: .center)
+        .frame(width: 215, height: 250, alignment: .top)
         .padding(10)
         .background(LinearGradient(
             gradient: Gradient(stops: [

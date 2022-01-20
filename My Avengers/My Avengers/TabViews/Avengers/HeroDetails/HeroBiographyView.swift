@@ -27,15 +27,19 @@ struct HeroBiographyView: View {
                     .padding(.vertical, 2)
                 VStack(alignment: .leading, spacing: 2) {
                     HStack {
-                        Text("Full name: ")
+                        Text("Full name: ").fontWeight(.bold)
                         + Text(heroID.fullName == "null" ? "Unknown" : heroID.fullName)
                     }
                     HStack {
-                        Text("Place of birth: ")
+                        Text("Race: ").fontWeight(.bold)
+                        + Text(heroID.race == "null" ? "Unknown" : heroID.race)
+                    }
+                    HStack {
+                        Text("Place of birth: ").fontWeight(.bold)
                         + Text(heroID.placeOfBirth == "null" ? "Unknown" : heroID.placeOfBirth)
                     }
                     HStack(spacing: 0.0) {
-                        Text("Publisher: ")
+                        Text("Publisher: ").fontWeight(.bold)
                         + Text(heroID.universe == "null" ? "Unknown" : heroID.universe)
                     }
                     
@@ -43,10 +47,11 @@ struct HeroBiographyView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .blendMode(.colorDodge)
                 .opacity(0.5)
+                .font(.system(size: 16))
             }
             .padding(.horizontal)
         }
-        .frame(width: 215, height: 250, alignment: .center)
+        .frame(width: 215, height: 250, alignment: .top)
         .padding(10)
         .background(LinearGradient(
             gradient: Gradient(stops: [

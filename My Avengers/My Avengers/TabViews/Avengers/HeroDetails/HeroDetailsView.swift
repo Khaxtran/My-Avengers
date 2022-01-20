@@ -18,7 +18,8 @@ struct HeroDetailsView: View {
         ForEach(hero.recruits, id: \.id) { hero in
             NavigationLink(destination:
                             ScrollView {
-                HeroImageView(heroID: hero)
+                HeroImage(heroID: hero)
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
                         HeroBiographyView(heroID: hero)
@@ -27,8 +28,9 @@ struct HeroDetailsView: View {
                     }
                         .padding()
                 }
+                HeroImageView(heroID: hero)
             }
-                            .navigationTitle(hero.name)
+                            .navigationBarHidden(true)
             
                             
             ) {
@@ -58,7 +60,6 @@ struct HeroDetailsView: View {
                 .padding(.vertical, 5)
             }
         }
-        
     }
 }
 
@@ -69,3 +70,23 @@ struct HeroDetailsView_Previews: PreviewProvider {
     }
 }
 
+struct HeroImage: View {
+    @State var heroID: HeroViewModel
+    
+    var body: some View {
+        HStack {
+            Text(heroID.name)
+                .font(.system(size: 35, weight: .bold, design: .default))
+                .padding(.leading, 10)
+            Spacer()
+            KFImage(heroID.image)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 55, height: 55, alignment: .center)
+                .clipShape(RoundedRectangle(cornerRadius: 100, style: .continuous))
+                .shadow(color: Color.black.opacity(0.2), radius: 1.5, x: 2, y: 2)
+        }
+        .padding(.horizontal)
+        .padding(.top, 40)
+    }
+}

@@ -11,20 +11,19 @@
 		313216E627743A1B00775BB4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313216E527743A1B00775BB4 /* SearchView.swift */; };
 		313216E827743A1D00775BB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216E727743A1D00775BB4 /* Assets.xcassets */; };
 		313216EB27743A1D00775BB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216EA27743A1D00775BB4 /* Preview Assets.xcassets */; };
+		31453FD12799433A000290AF /* Swipe+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31453FD02799433A000290AF /* Swipe+Extensions.swift */; };
 		3157C59F277BE5B200056A67 /* HeroDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C59E277BE5B200056A67 /* HeroDetailsView.swift */; };
 		3157C5A5277C0ED800056A67 /* SmoothGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 3157C5A4277C0ED800056A67 /* SmoothGradient */; };
 		3157C5A8277C3CC000056A67 /* HeroAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5A7277C3CC000056A67 /* HeroAppearanceView.swift */; };
 		3157C5AA277C41D700056A67 /* HeroBiographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5A9277C41D700056A67 /* HeroBiographyView.swift */; };
 		3157C5AC277C47B800056A67 /* HeroOccupationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5AB277C47B700056A67 /* HeroOccupationView.swift */; };
-		3157C5AE277C658100056A67 /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5AD277C658100056A67 /* HeroImageView.swift */; };
-		3157C5B0277C6DDF00056A67 /* HeroStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5AF277C6DDF00056A67 /* HeroStatsView.swift */; };
+		3157C5AE277C658100056A67 /* HeroStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5AD277C658100056A67 /* HeroStatsView.swift */; };
+		3157C5B0277C6DDF00056A67 /* StatsIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5AF277C6DDF00056A67 /* StatsIconView.swift */; };
 		315FE1FD277D11C300F013A2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 315FE1FC277D11C300F013A2 /* Lottie */; };
 		315FE1FF277D120F00F013A2 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315FE1FE277D120F00F013A2 /* LottieView.swift */; };
 		315FE201277D13FE00F013A2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315FE200277D13FE00F013A2 /* LoadingView.swift */; };
 		315FE203277D1BB200F013A2 /* loading-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 315FE202277D1BB200F013A2 /* loading-animation.json */; };
 		315FE205277D289500F013A2 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315FE204277D289500F013A2 /* SearchResultsView.swift */; };
-		315FE209277D330B00F013A2 /* RecruitedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315FE208277D330B00F013A2 /* RecruitedAnimation.swift */; };
-		315FE20D277D4CC600F013A2 /* confetti-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 315FE20C277D4CC600F013A2 /* confetti-animation.json */; };
 		31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E1F27746EEA00C71E3A /* GenericFetcher.swift */; };
 		31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E23277474A300C71E3A /* HeroFetcher.swift */; };
 		31983E27277474DA00C71E3A /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E26277474DA00C71E3A /* HeroModel.swift */; };
@@ -65,18 +64,17 @@
 		313216EA27743A1D00775BB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		313216F027743A1D00775BB4 /* My AvengersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313216FA27743A1D00775BB4 /* My AvengersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		31453FD02799433A000290AF /* Swipe+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swipe+Extensions.swift"; sourceTree = "<group>"; };
 		3157C59E277BE5B200056A67 /* HeroDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsView.swift; sourceTree = "<group>"; };
 		3157C5A7277C3CC000056A67 /* HeroAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAppearanceView.swift; sourceTree = "<group>"; };
 		3157C5A9277C41D700056A67 /* HeroBiographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroBiographyView.swift; sourceTree = "<group>"; };
 		3157C5AB277C47B700056A67 /* HeroOccupationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroOccupationView.swift; sourceTree = "<group>"; };
-		3157C5AD277C658100056A67 /* HeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
-		3157C5AF277C6DDF00056A67 /* HeroStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroStatsView.swift; sourceTree = "<group>"; };
+		3157C5AD277C658100056A67 /* HeroStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroStatsView.swift; sourceTree = "<group>"; };
+		3157C5AF277C6DDF00056A67 /* StatsIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsIconView.swift; sourceTree = "<group>"; };
 		315FE1FE277D120F00F013A2 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		315FE200277D13FE00F013A2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		315FE202277D1BB200F013A2 /* loading-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-animation.json"; sourceTree = "<group>"; };
 		315FE204277D289500F013A2 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
-		315FE208277D330B00F013A2 /* RecruitedAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitedAnimation.swift; sourceTree = "<group>"; };
-		315FE20C277D4CC600F013A2 /* confetti-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "confetti-animation.json"; sourceTree = "<group>"; };
 		31983E1F27746EEA00C71E3A /* GenericFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericFetcher.swift; sourceTree = "<group>"; };
 		31983E23277474A300C71E3A /* HeroFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroFetcher.swift; sourceTree = "<group>"; };
 		31983E26277474DA00C71E3A /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
@@ -175,6 +173,7 @@
 				31983E35277586D800C71E3A /* String+Extensions.swift */,
 				31983E3F2777FD1B00C71E3A /* UIColor+Extensions.swift */,
 				31983E472778527200C71E3A /* UIImage+Extensions.swift */,
+				31453FD02799433A000290AF /* Swipe+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,8 +212,8 @@
 				3157C5A7277C3CC000056A67 /* HeroAppearanceView.swift */,
 				3157C5A9277C41D700056A67 /* HeroBiographyView.swift */,
 				3157C5AB277C47B700056A67 /* HeroOccupationView.swift */,
-				3157C5AD277C658100056A67 /* HeroImageView.swift */,
-				3157C5AF277C6DDF00056A67 /* HeroStatsView.swift */,
+				3157C5AD277C658100056A67 /* HeroStatsView.swift */,
+				3157C5AF277C6DDF00056A67 /* StatsIconView.swift */,
 			);
 			path = HeroDetails;
 			sourceTree = "<group>";
@@ -224,7 +223,6 @@
 			children = (
 				315FE20E277E60FF00F013A2 /* AnimationViews */,
 				315FE1FE277D120F00F013A2 /* LottieView.swift */,
-				315FE20C277D4CC600F013A2 /* confetti-animation.json */,
 				315FE202277D1BB200F013A2 /* loading-animation.json */,
 			);
 			path = "Lottie Animation";
@@ -234,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				315FE200277D13FE00F013A2 /* LoadingView.swift */,
-				315FE208277D330B00F013A2 /* RecruitedAnimation.swift */,
 			);
 			path = AnimationViews;
 			sourceTree = "<group>";
@@ -398,7 +395,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				315FE20D277D4CC600F013A2 /* confetti-animation.json in Resources */,
 				313216EB27743A1D00775BB4 /* Preview Assets.xcassets in Resources */,
 				313216E827743A1D00775BB4 /* Assets.xcassets in Resources */,
 				315FE203277D1BB200F013A2 /* loading-animation.json in Resources */,
@@ -426,7 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3157C5AE277C658100056A67 /* HeroImageView.swift in Sources */,
+				3157C5AE277C658100056A67 /* HeroStatsView.swift in Sources */,
 				31983E382775904500C71E3A /* HomeView.swift in Sources */,
 				31983E3A2775A16400C71E3A /* MyAvengersView.swift in Sources */,
 				315FE201277D13FE00F013A2 /* LoadingView.swift in Sources */,
@@ -436,15 +432,15 @@
 				31983E402777FD1B00C71E3A /* UIColor+Extensions.swift in Sources */,
 				3157C5AA277C41D700056A67 /* HeroBiographyView.swift in Sources */,
 				31983E3C2775A34400C71E3A /* RecruitView.swift in Sources */,
-				315FE209277D330B00F013A2 /* RecruitedAnimation.swift in Sources */,
 				313216E627743A1B00775BB4 /* SearchView.swift in Sources */,
 				3157C59F277BE5B200056A67 /* HeroDetailsView.swift in Sources */,
+				31453FD12799433A000290AF /* Swipe+Extensions.swift in Sources */,
 				315FE1FF277D120F00F013A2 /* LottieView.swift in Sources */,
 				315FE205277D289500F013A2 /* SearchResultsView.swift in Sources */,
 				31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */,
 				313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */,
 				31983E36277586D800C71E3A /* String+Extensions.swift in Sources */,
-				3157C5B0277C6DDF00056A67 /* HeroStatsView.swift in Sources */,
+				3157C5B0277C6DDF00056A67 /* StatsIconView.swift in Sources */,
 				3157C5A8277C3CC000056A67 /* HeroAppearanceView.swift in Sources */,
 				31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */,
 				31983E3427754FB600C71E3A /* HeroListViewModel.swift in Sources */,

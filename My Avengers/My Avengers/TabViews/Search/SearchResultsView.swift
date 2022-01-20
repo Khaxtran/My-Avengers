@@ -20,10 +20,11 @@ struct SearchResultsView: View {
                         KFImage(result.image)
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 323, height: 200, alignment: .center)
+                            .frame(width: 250, height: 250, alignment: .center)
                             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                             .shadow(color: Color.black.opacity(0.2), radius: 1, x: 0, y: 5)
                         
+                    
                     Text(result.name)
                         .font(.title)
                 
@@ -50,9 +51,9 @@ struct SearchResultsView: View {
                             }
                         }
                 }
-            }
-            
-            )
+                
+            })
+                .frame(alignment: .top)
         }.listStyle(.plain)
             .searchable(text: $searchText)
             .onChange(of: searchText) { value in
@@ -63,8 +64,10 @@ struct SearchResultsView: View {
                         hero.heros.removeAll()
                     }
                 }
-            }.navigationTitle("Heros")
+            }
+            .navigationTitle("Heros")
     }
+    
 }
 
 
@@ -79,18 +82,12 @@ struct RecruitButtonView: View {
     @State var heroID: HeroViewModel
     @State var buttonMessage = ["Recruit", "Recruited"]
     @State var isRecruit : Bool = false
-    @State var playAnimation: Bool = false
     
     var body: some View {
         Button(action: {
             self.isRecruit.toggle()
             if isRecruit == true && !hero.recruits.contains(heroID){
                 hero.add(hero: heroID)
-                self.playAnimation = true
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.playAnimation = false
-                }
             } else {
                 hero.remove(hero: heroID)
             }
@@ -99,9 +96,6 @@ struct RecruitButtonView: View {
                 Text(hero.recruits.contains(heroID) ? buttonMessage[1] : buttonMessage[0])
                     .font(.headline)
             
-        }
-        if playAnimation {
-            RecruitedAnimation()
         }
         
     }
