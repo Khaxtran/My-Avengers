@@ -11,7 +11,7 @@ struct LoadingView: View {
     var body: some View {
         VStack {
             LottieView(filename: "loading-animation", fromFrame: 0, toFrame: 150, speed: 1)
-                .frame(width: 200, height: 200)
+                .frame(width: 400, height: 400)
         }
     }
 }

@@ -16,9 +16,6 @@ struct SearchView: View {
             NavigationView {
                 SearchResultsView()
             }
-            Spacer()
-            LoadingView()
-                
         }
         .ignoresSafeArea(.keyboard)
         
