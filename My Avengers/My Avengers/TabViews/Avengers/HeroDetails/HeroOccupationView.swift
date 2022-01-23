@@ -30,7 +30,7 @@ struct HeroOccupationView: View {
                     Text(heroID.occupation == "-" ? "Unknown" : heroID.occupation)
                     
                     HStack {
-                        Text("Base: ")
+                        Text("Base: ").fontWeight(.bold)
                         + Text(heroID.base == "-" ? "Unknown" : heroID.base)
                     }
                     
@@ -38,10 +38,11 @@ struct HeroOccupationView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .blendMode(.colorDodge)
                 .opacity(0.5)
+                .font(.system(size: 16))
             }
             .padding(.horizontal)
         }
-        .frame(width: 215, height: 250, alignment: .center)
+        .frame(width: 215, height: 250, alignment: .top)
         .padding(10)
         .background(LinearGradient(
             gradient: Gradient(stops: [

@@ -16,6 +16,7 @@ struct SearchView: View {
             NavigationView {
                 SearchResultsView()
             }
+            Spacer()
             LoadingView()
                 
         }
