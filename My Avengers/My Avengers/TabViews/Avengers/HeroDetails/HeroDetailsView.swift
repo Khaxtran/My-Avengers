@@ -35,14 +35,28 @@ struct HeroDetailsView: View {
                             
             ) {
                 ZStack {
-                    KFImage(hero.image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 150, height: 180)
-                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 10)
-                        .opacity(0.9)
-                    
+                    AsyncImage(url: hero.image) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 150, height: 180)
+                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 10)
+                                .opacity(0.9)
+                        } else if phase.error != nil {
+                            SwiftUI.Image("moon")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150, height: 180)
+                                .background(Color(.black).opacity(0.1))
+                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                .shadow(color: Color.black.opacity(0.7), radius: 10, x: 10, y: 20)
+                        } else {
+                            LoadingImageView()
+                                .frame(width: 150, height: 180)
+                        }
+                    }
                     
                     VStack {
                         Spacer()
@@ -74,17 +88,33 @@ struct HeroImage: View {
     @State var heroID: HeroViewModel
     
     var body: some View {
-        HStack {
+        HStack(alignment: .center) {
             Text(heroID.name)
                 .font(.system(size: 35, weight: .bold, design: .default))
                 .padding(.leading, 10)
             Spacer()
-            KFImage(heroID.image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 55, height: 55, alignment: .center)
-                .clipShape(RoundedRectangle(cornerRadius: 100, style: .continuous))
-                .shadow(color: Color.black.opacity(0.2), radius: 1.5, x: 2, y: 2)
+            AsyncImage(url: heroID.image) { phase in
+                if let image = phase.image {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 55, height: 55, alignment: .center)
+                        .clipShape(RoundedRectangle(cornerRadius: 100, style: .continuous))
+                        .shadow(color: Color.black.opacity(0.2), radius: 1.5, x: 2, y: 2)
+                } else if phase.error != nil {
+                    SwiftUI.Image("moon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 55, height: 55, alignment: .center)
+                        .background(Color(.black).opacity(0.1))
+                        .shadow(color: Color.black.opacity(0.7), radius: 10, x: 10, y: 20)
+                        .clipShape(RoundedRectangle(cornerRadius: 100, style: .continuous))
+                } else {
+                    LoadingImageView()
+                        .frame(width: 55, height: 55, alignment: .center)
+                        .clipShape(RoundedRectangle(cornerRadius: 100, style: .continuous))
+                }
+            }
         }
         .padding(.horizontal)
         .padding(.top, 40)

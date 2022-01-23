@@ -16,13 +16,31 @@ struct SearchResultsView: View {
         List(hero.heros, id: \.id) { result in
             NavigationLink(result.name, destination: {
                 VStack(alignment: .center) {
-    
-                        KFImage(result.image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 250, height: 250, alignment: .center)
-                            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                            .shadow(color: Color.black.opacity(0.2), radius: 1, x: 0, y: 5)
+                    AsyncImage(url: result.image) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 250, height: 250, alignment: .center)
+                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                .shadow(color: Color.black.opacity(0.2), radius: 1, x: 0, y: 5)
+                        } else if phase.error != nil {
+                            SwiftUI.Image("moon")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 250, height: 250)
+                                .background(Color(.black).opacity(0.1))
+                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                .shadow(color: Color.black.opacity(0.7), radius: 10, x: 10, y: 20)
+                        } else {
+                            LoadingImageView()
+                                .frame(width: 250, height: 250)
+                                .background(Color(.black).opacity(0.1))
+                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 20)
+                        }
+                    }
+                            
                         
                     
                     Text(result.name)

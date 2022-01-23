@@ -13,6 +13,7 @@ struct LottieView: UIViewRepresentable {
     var filename: String
     var fromFrame: CGFloat
     var toFrame: CGFloat
+    var speed: CGFloat
     
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         let view = UIView(frame: .zero)
@@ -23,6 +24,7 @@ struct LottieView: UIViewRepresentable {
         animationView.contentMode = .scaleAspectFit
         animationView.play(fromFrame: fromFrame, toFrame: toFrame, loopMode: .loop)
         animationView.backgroundBehavior = .pauseAndRestore
+        animationView.animationSpeed = speed
         
         animationView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(animationView)
@@ -43,6 +45,6 @@ struct LottieView: UIViewRepresentable {
 
 struct LottieView_Previews: PreviewProvider {
     static var previews: some View {
-        LottieView(filename: "", fromFrame: 0, toFrame: 0)
+        LottieView(filename: "", fromFrame: 0, toFrame: 0, speed: 1)
     }
 }
