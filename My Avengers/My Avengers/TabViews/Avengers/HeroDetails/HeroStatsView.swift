@@ -8,7 +8,7 @@
 import Kingfisher
 import SwiftUI
 
-struct HeroImageView: View {
+struct HeroStatsView: View {
     @State var heroID: HeroViewModel
     
     var body: some View {

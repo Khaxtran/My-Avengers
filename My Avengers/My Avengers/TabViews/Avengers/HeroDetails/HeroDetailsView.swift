@@ -15,27 +15,37 @@ struct HeroDetailsView: View {
     
     var body: some View {
         
-        ForEach(hero.recruits, id: \.id) { hero in
+        ForEach(hero.recruits, id: \.id) { heroID in
             NavigationLink(destination:
                             ScrollView {
-                HeroImage(heroID: hero)
+                HeroImage(heroID: heroID)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
-                        HeroBiographyView(heroID: hero)
-                        HeroAppearanceView(heroID: hero)
-                        HeroOccupationView(heroID: hero)
+                        HeroBiographyView(heroID: heroID)
+                        HeroAppearanceView(heroID: heroID)
+                        HeroOccupationView(heroID: heroID)
                     }
                         .padding()
                 }
-                HeroImageView(heroID: hero)
+                HeroStatsView(heroID: heroID)
+                Button(action: {
+                    hero.remove(hero: heroID)
+                    
+                    }) {
+                        Text("End contract")
+                            .font(.headline)
+                            .padding()
+                            .foregroundColor(Color(.red))
+                    
+                }
             }
                             .navigationBarHidden(true)
             
                             
             ) {
                 ZStack {
-                    AsyncImage(url: hero.image) { phase in
+                    AsyncImage(url: heroID.image) { phase in
                         if let image = phase.image {
                             image
                                 .resizable()
@@ -60,7 +70,7 @@ struct HeroDetailsView: View {
                     
                     VStack {
                         Spacer()
-                        Text(hero.name)
+                        Text(heroID.name)
                             .font(.system(size: 13, weight: .semibold))
                             .padding(7)
                             .background(Color.white.opacity(0.9))
@@ -85,6 +95,7 @@ struct HeroDetailsView_Previews: PreviewProvider {
 }
 
 struct HeroImage: View {
+    @EnvironmentObject var hero: HeroListViewModel
     @State var heroID: HeroViewModel
     
     var body: some View {
