@@ -12,13 +12,9 @@ struct HomeView: View {
     
     var body: some View {
         TabView {
-            MyAvengersView()
-                .tabItem {
-                    Label("Team", systemImage: "person.2.crop.square.stack")
-                }
             RecruitView()
                 .tabItem {
-                    Label("Avengers", systemImage: "plus.app.fill")
+                    Label("Avengers", systemImage: "person.2.crop.square.stack")
                 }
             SearchView()
                 .tabItem {

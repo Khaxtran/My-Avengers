@@ -34,7 +34,6 @@
 		31983E3427754FB600C71E3A /* HeroListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E3327754FB600C71E3A /* HeroListViewModel.swift */; };
 		31983E36277586D800C71E3A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E35277586D800C71E3A /* String+Extensions.swift */; };
 		31983E382775904500C71E3A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E372775904500C71E3A /* HomeView.swift */; };
-		31983E3A2775A16400C71E3A /* MyAvengersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E392775A16400C71E3A /* MyAvengersView.swift */; };
 		31983E3C2775A34400C71E3A /* RecruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E3B2775A34400C71E3A /* RecruitView.swift */; };
 		31983E402777FD1B00C71E3A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E3F2777FD1B00C71E3A /* UIColor+Extensions.swift */; };
 		31983E46277851C400C71E3A /* ImageAssetTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E45277851C400C71E3A /* ImageAssetTypes.swift */; };
@@ -86,7 +85,6 @@
 		31983E3327754FB600C71E3A /* HeroListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListViewModel.swift; sourceTree = "<group>"; };
 		31983E35277586D800C71E3A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		31983E372775904500C71E3A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		31983E392775A16400C71E3A /* MyAvengersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAvengersView.swift; sourceTree = "<group>"; };
 		31983E3B2775A34400C71E3A /* RecruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitView.swift; sourceTree = "<group>"; };
 		31983E3F2777FD1B00C71E3A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		31983E45277851C400C71E3A /* ImageAssetTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssetTypes.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 		3157C5A0277BE69100056A67 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
-				3157C5A2277BE6CA00056A67 /* Team */,
 				3157C5A1277BE6A900056A67 /* Avengers */,
 				31983E412778070700C71E3A /* Search */,
 			);
@@ -199,14 +196,6 @@
 				31983E3B2775A34400C71E3A /* RecruitView.swift */,
 			);
 			path = Avengers;
-			sourceTree = "<group>";
-		};
-		3157C5A2277BE6CA00056A67 /* Team */ = {
-			isa = PBXGroup;
-			children = (
-				31983E392775A16400C71E3A /* MyAvengersView.swift */,
-			);
-			path = Team;
 			sourceTree = "<group>";
 		};
 		3157C5A6277C3C7F00056A67 /* HeroDetails */ = {
@@ -431,7 +420,6 @@
 			files = (
 				3157C5AE277C658100056A67 /* HeroStatsView.swift in Sources */,
 				31983E382775904500C71E3A /* HomeView.swift in Sources */,
-				31983E3A2775A16400C71E3A /* MyAvengersView.swift in Sources */,
 				315FE201277D13FE00F013A2 /* LoadingView.swift in Sources */,
 				31983E3227754AF900C71E3A /* WebService.swift in Sources */,
 				31983E482778527200C71E3A /* UIImage+Extensions.swift in Sources */,
