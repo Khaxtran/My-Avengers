@@ -13,6 +13,7 @@ class HeroListViewModel: ObservableObject {
     @Published var heros = [HeroViewModel]()
     @Published var recruits = [HeroViewModel]()
     
+    let saveKey = "SaveData"
     
     //Search
     func search(name: String) async {
@@ -24,19 +25,38 @@ class HeroListViewModel: ObservableObject {
         }
     }
     
+    init() {
+        if let data = UserDefaults.standard.data(forKey: saveKey) {
+            if let decoded = try? JSONDecoder().decode([HeroViewModel].self, from: data) {
+                recruits = decoded
+                return
+            }
+        }
+    }
+    
+    //Save data
+    private func save() {
+        if let encode = try? JSONEncoder().encode(recruits) {
+            UserDefaults.standard.set(encode, forKey: saveKey)
+        }
+    }
+    
     //Recruit
     func add(hero: HeroViewModel) {
         recruits.append(hero)
+        save()
     }
     
     func remove(hero: HeroViewModel) {
         if let index = recruits.firstIndex(of: hero) {
             recruits.remove(at: index)
+            save()
         }
     }
+    
 }
 
-struct HeroViewModel: Equatable, Identifiable {
+struct HeroViewModel: Equatable, Identifiable, Codable {
     
     let hero: Result
     
