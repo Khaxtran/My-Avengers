@@ -11,7 +11,7 @@ import SmoothGradient
 
 struct HeroDetailsView: View {
     @EnvironmentObject var hero: HeroListViewModel
-    
+    @State private var showAlert = false
     
     var body: some View {
         
@@ -30,15 +30,21 @@ struct HeroDetailsView: View {
                 }
                 HeroStatsView(heroID: heroID)
                 Button(action: {
-                    hero.remove(hero: heroID)
-                    
-                    }) {
+                    self.showAlert = true
+                }, label: {
                         Text("End contract")
                             .font(.headline)
                             .padding()
                             .foregroundColor(Color(.red))
                     
-                }
+                })
+                    .alert(isPresented: $showAlert, content: {
+                        Alert(title: Text("End contract?"),
+                              message: Text("Are you sure you want to end contract with \(heroID.name)?"),
+                              primaryButton: .default(Text("Yes"),
+                                                      action: {hero.remove(hero: heroID)}),
+                              secondaryButton: .cancel(Text("No").foregroundColor(.red)))
+                    })
             }
                             .navigationBarHidden(true)
             
