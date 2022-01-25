@@ -11,6 +11,8 @@ import SwiftUI
 
 struct RecruitView: View {
     @EnvironmentObject var hero: HeroListViewModel
+    @State var tapHeroCount = false
+    @State private var animationAmount = 0.5
     
     var body: some View {
         NavigationView {
@@ -19,12 +21,40 @@ struct RecruitView: View {
                 AvengersEmptyStateView()
             } else {
                 ScrollView {
+                    
+                    HStack {
+                
+                            Button(action: {
+                                    tapHeroCount.toggle()
+                            }, label: {
+                                Text(tapHeroCount ? "You have recruited \(hero.recruits.count) heros" : "\(hero.recruits.count)")
+                                    .padding()
+                                    
+                            })
+                            .frame(width: tapHeroCount ? 250 : 50, height: 50, alignment: .center)
+                            .background(tapHeroCount ? .blue : .green)
+                            .animation(.interpolatingSpring(stiffness: 100, damping: 20), value: tapHeroCount)
+                            .foregroundColor(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 100))
+                            .animation(.interpolatingSpring(stiffness: 100, damping: 20), value: tapHeroCount)
+    
+                    }
+                    .padding()
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                    
+                    
+                    
+                    
                     LazyVGrid(columns: [GridItem(.flexible(minimum: 100, maximum: 200), spacing: 5),
                                         GridItem(.flexible(minimum: 100, maximum: 200))
                                        ], spacing: 10, content: {HeroDetailsView()})
-                }.navigationTitle("My avengers")
+                }
             }
         }
+        .navigationBarHidden(true)
+        .overlay(
+            NavigationBar(title: "My avengers")
+        )
     }
 }
 

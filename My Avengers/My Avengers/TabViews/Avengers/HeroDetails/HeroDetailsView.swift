@@ -57,9 +57,8 @@ struct HeroDetailsView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 150, height: 180)
-                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                                 .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 10)
-                                .opacity(0.9)
                         } else if phase.error != nil {
                             SwiftUI.Image("moon")
                                 .resizable()
