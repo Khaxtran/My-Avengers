@@ -13,16 +13,20 @@ struct RecruitView: View {
     @EnvironmentObject var hero: HeroListViewModel
     
     var body: some View {
-        NavigationView {
+
+        ScrollView {
             
             if hero.recruits.count == 0 {
                 AvengersEmptyStateView()
             } else {
                 ScrollView {
+                    AvengersNavigationBar(heroCount: "\(hero.recruits.count)")
                     LazyVGrid(columns: [GridItem(.flexible(minimum: 100, maximum: 200), spacing: 5),
-                                        GridItem(.flexible(minimum: 100, maximum: 200))
-                                       ], spacing: 10, content: {HeroDetailsView()})
-                }.navigationTitle("My avengers")
+                                        GridItem(.flexible(minimum: 100, maximum: 200))],
+                              spacing: 10,
+                              content: {HeroDetailsView()})
+                }
+                
             }
         }
     }
@@ -32,6 +36,37 @@ struct RecruitView_Previews: PreviewProvider {
     static var previews: some View {
         RecruitView()
             .environmentObject(HeroListViewModel())
+    }
+}
+
+struct AvengersNavigationBar: View {
+    @State var heroCount: String
+    @State var tapHeroCount = false
+    
+    var body: some View {
+        
+        HStack {
+                Text("My avengers")
+                .font(.largeTitle.weight(.bold))
+                Spacer()
+                Button(action: {
+                        tapHeroCount.toggle()
+                }, label: {
+                    Text(tapHeroCount ? "\(heroCount) recuited" : "\(heroCount)")
+                        .padding(10)
+                        
+                })
+                .frame(width: tapHeroCount ? 120 : 40, height: 40, alignment: .center)
+                .background(tapHeroCount ? .blue : .green)
+                .animation(.interpolatingSpring(mass: 1, stiffness: 150, damping: 25), value: tapHeroCount)
+                .foregroundColor(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 100))
+                .animation(.interpolatingSpring(mass: 1, stiffness: 150, damping: 25), value: tapHeroCount)
+
+        }
+        .padding(.horizontal)
+        .padding(.top, 45)
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
     }
 }
 
