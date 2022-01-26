@@ -9,18 +9,16 @@ import SwiftUI
 
 struct SearchSuggestionView: View {
     @State var text: String
-    @State var suggestions = ["Superman", "Spiderman", "Batman", "Captain America", "Thor", "Shang-chi", "Flash", "Ironman"]
+    @State var suggestions = ["Superman", "Spiderman", "Batman", "Thor", "Shang-chi", "Flash", "Ironman"]
     
     var body: some View {
-        VStack {
             ForEach(suggestions, id: \.self) { suggestion in
                 Button(action: {
-                    
+                    text = suggestion
                 }, label: {
-                    
+                    Text(suggestion)
                 })
             }
-        }
     }
 }
 
