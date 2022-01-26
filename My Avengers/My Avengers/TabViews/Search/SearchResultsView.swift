@@ -10,7 +10,7 @@ import Kingfisher
 
 struct SearchResultsView: View {
     @EnvironmentObject var hero: HeroListViewModel
-    @State public var searchText: String = ""
+    @State private var searchText: String = ""
     @State var suggestions = ["Superman", "Spiderman", "Batman", "Thor", "Shang-chi", "Flash", "Ironman"]
     
     var body: some View {

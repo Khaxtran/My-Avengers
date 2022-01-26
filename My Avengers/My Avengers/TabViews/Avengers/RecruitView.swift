@@ -11,24 +11,31 @@ import SwiftUI
 
 struct RecruitView: View {
     @EnvironmentObject var hero: HeroListViewModel
+    @State private var searchText = ""
     
     var body: some View {
-
-        ScrollView {
+        
+        ScrollView(showsIndicators: false) {
             
             if hero.recruits.count == 0 {
                 AvengersEmptyStateView()
             } else {
-                ScrollView {
-                    AvengersNavigationBar(heroCount: "\(hero.recruits.count)")
+                ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: [GridItem(.flexible(minimum: 100, maximum: 200), spacing: 5),
                                         GridItem(.flexible(minimum: 100, maximum: 200))],
-                              spacing: 10,
+                              spacing: 16,
                               content: {HeroDetailsView()})
+                        .padding(.horizontal, 12)
                 }
-                
+                .padding(.top, 150)
             }
         }
+        .overlay(AvengersNavigationBar(heroCount: "\(hero.recruits.count)")
+                    .frame(height: 108, alignment: .bottom)
+                 // background must be placed after frame height
+                    .background(Color(UIColor.systemBackground))
+                    .frame(maxHeight: .infinity, alignment: .top))
+        
     }
 }
 
@@ -46,16 +53,16 @@ struct AvengersNavigationBar: View {
     var body: some View {
         
         HStack {
-                Text("My avengers")
+            Text("My avengers")
                 .font(.largeTitle.weight(.bold))
-                Spacer()
-                Button(action: {
-                        tapHeroCount.toggle()
-                }, label: {
-                    Text(tapHeroCount ? "\(heroCount) recuited" : "\(heroCount)")
-                        .padding(10)
-                        
-                })
+            Spacer()
+            Button(action: {
+                tapHeroCount.toggle()
+            }, label: {
+                Text(tapHeroCount ? "\(heroCount) recuited" : "\(heroCount)")
+                    .padding(10)
+                
+            })
                 .frame(width: tapHeroCount ? 120 : 40, height: 40, alignment: .center)
                 .background(tapHeroCount ? .blue : .green)
                 .animation(.interpolatingSpring(mass: 1, stiffness: 150, damping: 25), value: tapHeroCount)
@@ -64,9 +71,7 @@ struct AvengersNavigationBar: View {
                 .animation(.interpolatingSpring(mass: 1, stiffness: 150, damping: 25), value: tapHeroCount)
 
         }
-        .padding(.horizontal)
-        .padding(.top, 45)
-        .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+        .padding()
     }
 }
 

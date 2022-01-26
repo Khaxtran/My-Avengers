@@ -6,7 +6,7 @@
 import Foundation
 
 // MARK: - Hero
-struct Hero: Codable, Equatable {
+struct Hero: Codable, Equatable, Hashable {
     let response, resultsFor: String
     let results: [Result]
 
@@ -18,7 +18,7 @@ struct Hero: Codable, Equatable {
 }
 
 // MARK: - Result
-struct Result: Codable, Equatable, Identifiable {
+struct Result: Codable, Equatable, Identifiable, Hashable {
     let id, name: String
     let powerstats: Powerstats
     let biography: Biography
@@ -29,7 +29,7 @@ struct Result: Codable, Equatable, Identifiable {
 }
 
 // MARK: - Appearance
-struct Appearance: Codable, Equatable{
+struct Appearance: Codable, Equatable, Hashable{
     let gender, race: String
     let height, weight: [String]
     let eyeColor, hairColor: String
@@ -42,7 +42,7 @@ struct Appearance: Codable, Equatable{
 }
 
 // MARK: - Biography
-struct Biography: Codable, Equatable{
+struct Biography: Codable, Equatable, Hashable{
     let fullName, alterEgos: String
     let aliases: [String]
     let placeOfBirth, firstAppearance, publisher, alignment: String
@@ -58,7 +58,7 @@ struct Biography: Codable, Equatable{
 }
 
 // MARK: - Connections
-struct Connections: Codable, Equatable {
+struct Connections: Codable, Equatable, Hashable {
     let groupAffiliation, relatives: String
 
     enum CodingKeys: String, CodingKey {
@@ -68,17 +68,17 @@ struct Connections: Codable, Equatable {
 }
 
 // MARK: - Image
-struct Image: Codable, Equatable {
+struct Image: Codable, Equatable, Hashable {
     let url: String
 }
 
 // MARK: - Powerstats
-struct Powerstats: Codable, Equatable {
+struct Powerstats: Codable, Equatable, Hashable {
     let intelligence, strength, speed, durability: String
     let power, combat: String
 }
 
 // MARK: - Work
-struct Work: Codable, Equatable {
+struct Work: Codable, Equatable, Hashable {
     let occupation, base: String
 }

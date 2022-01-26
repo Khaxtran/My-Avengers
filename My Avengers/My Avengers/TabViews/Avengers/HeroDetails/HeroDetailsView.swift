@@ -32,49 +32,43 @@ struct HeroCardView: View {
     @State private var showDetails = false
     
     var body: some View {
-        Button(action: {
-            showDetails.toggle()
-        }, label: {
-            ZStack {
-                AsyncImage(url: heroID.image) { phase in
-                    if let image = phase.image {
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 150, height: 180)
-                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 10)
-                    } else if phase.error != nil {
-                        SwiftUI.Image("moon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 150, height: 180)
-                            .background(Color(.black).opacity(0.1))
-                            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                            .shadow(color: Color.black.opacity(0.7), radius: 10, x: 10, y: 20)
-                    } else {
-                        LoadingImageView()
-                            .frame(width: 150, height: 180)
+        
+        VStack {
+            Button(action: {
+                showDetails.toggle()
+            }, label: {
+                ZStack {
+                    AsyncImage(url: heroID.image) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 155, height: 155)
+                                .clipShape(RoundedRectangle(cornerRadius: 5))
+                        } else if phase.error != nil {
+                            SwiftUI.Image("moon")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 155, height: 155)
+                                .background(Color(.black).opacity(0.1))
+                                .clipShape(RoundedRectangle(cornerRadius: 5))
+                        } else {
+                            LoadingImageView()
+                                .frame(width: 155, height: 155)
+                        }
                     }
                 }
-                VStack {
-                    Spacer()
-                    Text(heroID.name)
-                        .font(.system(size: 13, weight: .semibold))
-                        .padding(7)
-                        .background(Color.white.opacity(0.9))
-                        .foregroundColor(Color.black.opacity(0.7))
-                        .shadow(color: Color.white.opacity(0.6), radius: 10, x: 0, y: 10)
-                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                
+            })
+                .sheet(isPresented: $showDetails) {
+                    HeroDetails(heroID: heroID)
                 }
-                .padding()
-            }
-            
-        })
-            .sheet(isPresented: $showDetails) {
-                HeroDetails(heroID: heroID)
-            }
+            Text(heroID.name)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.system(size: 16, weight: .regular))
+                .padding(.horizontal, 8)
         }
+    }
 }
 
 struct HeroImage: View {
@@ -122,7 +116,7 @@ struct HeroDetails: View {
     
     var body: some View {
         
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             HeroImage(heroID: heroID)
             
             ScrollView(.horizontal, showsIndicators: false) {

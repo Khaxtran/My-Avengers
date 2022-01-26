@@ -56,7 +56,7 @@ class HeroListViewModel: ObservableObject {
     
 }
 
-struct HeroViewModel: Equatable, Identifiable, Codable {
+struct HeroViewModel: Equatable, Identifiable, Codable, Hashable {
     
     let hero: Result
     
