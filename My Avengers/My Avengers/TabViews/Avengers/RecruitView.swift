@@ -15,7 +15,8 @@ struct RecruitView: View {
     @State private var animationAmount = 0.5
     
     var body: some View {
-        NavigationView {
+
+        ScrollView {
             
             if hero.recruits.count == 0 {
                 AvengersEmptyStateView()
@@ -23,23 +24,26 @@ struct RecruitView: View {
                 ScrollView {
                     
                     HStack {
-                
+                            Text("My avengers")
+                            .font(.largeTitle.weight(.bold))
+                            Spacer()
                             Button(action: {
                                     tapHeroCount.toggle()
                             }, label: {
-                                Text(tapHeroCount ? "You have recruited \(hero.recruits.count) heros" : "\(hero.recruits.count)")
-                                    .padding()
+                                Text(tapHeroCount ? "\(hero.recruits.count) recuited" : "\(hero.recruits.count)")
+                                    .padding(10)
                                     
                             })
-                            .frame(width: tapHeroCount ? 250 : 50, height: 50, alignment: .center)
+                            .frame(width: tapHeroCount ? 120 : 40, height: 40, alignment: .center)
                             .background(tapHeroCount ? .blue : .green)
-                            .animation(.interpolatingSpring(stiffness: 100, damping: 20), value: tapHeroCount)
+                            .animation(.interpolatingSpring(mass: 1, stiffness: 150, damping: 25), value: tapHeroCount)
                             .foregroundColor(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 100))
-                            .animation(.interpolatingSpring(stiffness: 100, damping: 20), value: tapHeroCount)
+                            .animation(.interpolatingSpring(mass: 1, stiffness: 150, damping: 25), value: tapHeroCount)
     
                     }
-                    .padding()
+                    .padding(.horizontal)
+                    .padding(.top, 45)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                     
                     
@@ -49,12 +53,9 @@ struct RecruitView: View {
                                         GridItem(.flexible(minimum: 100, maximum: 200))
                                        ], spacing: 10, content: {HeroDetailsView()})
                 }
+                
             }
         }
-        .navigationBarHidden(true)
-        .overlay(
-            NavigationBar(title: "My avengers")
-        )
     }
 }
 
