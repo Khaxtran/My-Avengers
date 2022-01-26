@@ -39,7 +39,6 @@
 		31983E46277851C400C71E3A /* ImageAssetTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E45277851C400C71E3A /* ImageAssetTypes.swift */; };
 		31983E482778527200C71E3A /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31983E472778527200C71E3A /* UIImage+Extensions.swift */; };
 		31ED6AA027A0197800C37D17 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED6A9F27A0197800C37D17 /* NavigationBar.swift */; };
-		31ED6AA327A0EA7200C37D17 /* SearchSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED6AA227A0EA7200C37D17 /* SearchSuggestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +91,6 @@
 		31983E45277851C400C71E3A /* ImageAssetTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssetTypes.swift; sourceTree = "<group>"; };
 		31983E472778527200C71E3A /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		31ED6A9F27A0197800C37D17 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		31ED6AA227A0EA7200C37D17 /* SearchSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,7 +275,6 @@
 			children = (
 				313216E527743A1B00775BB4 /* SearchView.swift */,
 				315FE204277D289500F013A2 /* SearchResultsView.swift */,
-				31ED6AA227A0EA7200C37D17 /* SearchSuggestionView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -446,7 +443,6 @@
 				3157C59F277BE5B200056A67 /* HeroDetailsView.swift in Sources */,
 				31453FD12799433A000290AF /* Swipe+Extensions.swift in Sources */,
 				315FE1FF277D120F00F013A2 /* LottieView.swift in Sources */,
-				31ED6AA327A0EA7200C37D17 /* SearchSuggestionView.swift in Sources */,
 				315FE205277D289500F013A2 /* SearchResultsView.swift in Sources */,
 				311BB907279D3625000B4474 /* LoadingImageView.swift in Sources */,
 				31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */,
