@@ -11,12 +11,21 @@ import Kingfisher
 struct SearchResultsView: View {
     @EnvironmentObject var hero: HeroListViewModel
     @State public var searchText: String = ""
+    private var suggestions = ["Superman", "Spiderman", "Batman", "Captain America", "Thor", "Shang-chi", "Flash", "Ironman"]
     
     var body: some View {
         
         SearchingView()
             .listStyle(.insetGrouped)
-            .searchable(text: $searchText)
+            .searchable(text: $searchText) {
+                ForEach(suggestions, id: \.self) { suggestion in
+                    Button(action: {
+                        searchText = suggestion
+                    }, label: {
+                        Text(suggestion)
+                    })
+                }
+            }
             .onChange(of: searchText) { value in
                 Task.init(){
                     if !value.isEmpty && value.count > 1 {
