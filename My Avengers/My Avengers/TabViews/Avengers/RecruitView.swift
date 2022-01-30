@@ -15,26 +15,31 @@ struct RecruitView: View {
     
     var body: some View {
         
-        ScrollView(showsIndicators: false) {
-            
-            if hero.recruits.count == 0 {
-                AvengersEmptyStateView()
-            } else {
-                ScrollView(showsIndicators: false) {
-                    LazyVGrid(columns: [GridItem(.flexible(minimum: 100, maximum: 200), spacing: 5),
-                                        GridItem(.flexible(minimum: 100, maximum: 200))],
-                              spacing: 16,
-                              content: {HeroDetailsView()})
-                        .padding(.horizontal, 12)
-                }
-                .padding(.top, 150)
+        if hero.recruits.count == 0 {
+            VStack(alignment: .leading) {
+                Text("My avengers")
+                    .font(.largeTitle.weight(.bold))
+                    .frame(height: 92, alignment: .bottomLeading)
+                    .padding(.horizontal)
+                    AvengersEmptyStateView()
             }
+        } else {
+            ScrollView(showsIndicators: false) {
+                    ScrollView(showsIndicators: false) {
+                        LazyVGrid(columns: [GridItem(.flexible(minimum: 100, maximum: 200), spacing: 5),
+                                            GridItem(.flexible(minimum: 100, maximum: 200))],
+                                  spacing: 16,
+                                  content: {HeroDetailsView()})
+                            .padding(.horizontal, 12)
+                    }
+                    .padding(.top, 150)
+            }
+            .overlay(AvengersNavigationBar(heroCount: "\(hero.recruits.count)")
+                        .frame(height: 108, alignment: .bottom)
+                     // background must be placed after frame height
+                        .background(Color(UIColor.systemBackground))
+                        .frame(maxHeight: .infinity, alignment: .top))
         }
-        .overlay(AvengersNavigationBar(heroCount: "\(hero.recruits.count)")
-                    .frame(height: 108, alignment: .bottom)
-                 // background must be placed after frame height
-                    .background(Color(UIColor.systemBackground))
-                    .frame(maxHeight: .infinity, alignment: .top))
         
     }
 }
@@ -81,7 +86,6 @@ struct AvengersEmptyStateView: View {
         VStack {
             Text("You don't have any avenger yet, search and recruit them now!")
                 .font(.system(size: 20, weight: .regular))
-                .padding(.top, 25)
                 .padding(.horizontal, 15)
                 .multilineTextAlignment(.center)
             
@@ -92,7 +96,6 @@ struct AvengersEmptyStateView: View {
                     .frame(width: geo.size.width * 1.5)
             }
         }
-        .navigationTitle("My avengers")
-    
     }
 }
+
