@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import UIKit
 import Kingfisher
 
 struct SearchResultsView: View {
     @EnvironmentObject var hero: HeroListViewModel
+    @State private var heros: Hero? = nil
     @State private var searchText: String = ""
     @State var suggestions = ["Superman", "Spiderman", "Batman", "Thor", "Shang-chi", "Flash", "Ironman"]
     
@@ -25,7 +27,7 @@ struct SearchResultsView: View {
                         Button(action: {
                             searchText = suggestion
                         }, label: {
-                                Text(suggestion)
+                            Text(suggestion)
                                 .listRowSeparator(.hidden)
                                 .font(.system(size: 13, weight: .semibold))
                                 .padding(7)
@@ -39,7 +41,7 @@ struct SearchResultsView: View {
                 .onChange(of: searchText) { value in
                     Task.init(){
                         if !value.isEmpty && value.count > 1 {
-                            await search(name: value)
+                            await hero.search(name: value)
                         } else {
                             hero.heros.removeAll()
                         }
@@ -48,22 +50,14 @@ struct SearchResultsView: View {
                 .navigationTitle("Heros")
             
             if hero.isLoading {
-                ZStack {
-                    Color(.white)
-                        .opacity(0.3)
-                        .ignoresSafeArea()
-                    ProgressView("Finding heros")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(.systemBackground))
-                        )
-                        .shadow(radius: 10)
-                }
+                    SearchingAnimationView()
+                    .frame(height: 35)
+                    .shadow(color: Color(UIColor.systemFill), radius: 1, x: 5, y: 7)
+                    .background(Color(UIColor.secondarySystemBackground))
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 
             }
         }
-        
     }
     
 }
@@ -100,13 +94,12 @@ struct RecruitButtonView: View {
 }
 
 struct SearchingView: View {
-    @EnvironmentObject private var hero: HeroListViewModel
-    @State private var heros: Hero? = nil
+    @EnvironmentObject var hero: HeroListViewModel
     @Environment(\.isSearching) var isSearching
 
       var body: some View {
         if isSearching {
-            List(heros.results, id: \.id) { result in
+            List(hero.heros, id: \.id) { result in
                 NavigationLink(result.name, destination: {
                     VStack(alignment: .center) {
                         AsyncImage(url: result.image) { phase in
@@ -116,7 +109,7 @@ struct SearchingView: View {
                                     .scaledToFill()
                                     .frame(width: 250, height: 250, alignment: .center)
                                     .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                                    .shadow(color: Color.black.opacity(0.2), radius: 1, x: 0, y: 5)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
                             } else if phase.error != nil {
                                 SwiftUI.Image("moon")
                                     .resizable()
@@ -126,18 +119,18 @@ struct SearchingView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                                     .shadow(color: Color.black.opacity(0.7), radius: 10, x: 10, y: 20)
                             } else {
-                                LoadingImageView()
+                                SearchingAnimationView()
                                     .frame(width: 250, height: 250)
                                     .background(Color(.black).opacity(0.1))
                                     .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                                    .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 20)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 1, x: 5, y: 7)
                             }
                         }
-                                
+
                         Text(result.name)
                             .font(.title)
                                 RecruitButtonView(heroID: result)
-        
+
                             VStack {
                                 HStack {
                                     Text("Gender:")
@@ -159,7 +152,7 @@ struct SearchingView: View {
                                 }
                             }
                     }
-                    
+
                 })
                     .frame(alignment: .top)
             }
@@ -167,22 +160,4 @@ struct SearchingView: View {
             LoadingView()
         }
       }
-    
-    //Search
-    func search(name: String) async {
-        
-        let apiService = WebService.shared
-        
-        apiService.getJSON(urlString: "https://superheroapi.com/api/4632428266824459/search/\(name.trimmed())") { (result: Result<Hero, WebService.NetworkError>) in
-            switch result {
-            case .success(let hero):
-                self.heros = hero
-            case .failure(let apiError):
-                switch apiError {
-                case .error(let errorString):
-                    print(errorString)
-                }
-            }
-        }
-    }
 }

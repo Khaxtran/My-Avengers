@@ -53,8 +53,10 @@ struct HeroCardView: View {
                                 .background(Color(.black).opacity(0.1))
                                 .clipShape(RoundedRectangle(cornerRadius: 5))
                         } else {
-                            LoadingImageView()
+                            SearchingAnimationView()
                                 .frame(width: 155, height: 155)
+                                .shadow(color: Color(UIColor.systemFill), radius: 1, x: 5, y: 7)
+                                .background(Color(UIColor.secondarySystemBackground))
                         }
                     }
                 }
@@ -98,9 +100,11 @@ struct HeroImage: View {
                         .shadow(color: Color.black.opacity(0.7), radius: 10, x: 10, y: 20)
                         .clipShape(RoundedRectangle(cornerRadius: 100, style: .continuous))
                 } else {
-                    LoadingImageView()
+                    SearchingAnimationView()
                         .frame(width: 55, height: 55, alignment: .center)
                         .clipShape(RoundedRectangle(cornerRadius: 100, style: .continuous))
+                        .shadow(color: Color(UIColor.systemFill), radius: 1, x: 5, y: 7)
+                        .background(Color(UIColor.secondarySystemBackground))
                 }
             }
         }

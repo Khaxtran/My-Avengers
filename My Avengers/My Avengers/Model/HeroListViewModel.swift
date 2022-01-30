@@ -14,9 +14,9 @@ class HeroListViewModel: ObservableObject {
         let errorString: String
     }
     
+    @Published var isLoading: Bool = false
     @Published var heros = [HeroViewModel]()
     @Published var recruits = [HeroViewModel]()
-    @Published var isLoading: Bool = false
     
     let saveKey = "SaveData"
     
@@ -31,7 +31,7 @@ class HeroListViewModel: ObservableObject {
     }
     
     //Save data
-    private func save() {
+    func save() {
         if let encode = try? JSONEncoder().encode(recruits) {
             UserDefaults.standard.set(encode, forKey: saveKey)
         }
@@ -39,7 +39,7 @@ class HeroListViewModel: ObservableObject {
     
     //Recruit
     func add(hero: HeroViewModel) {
-        recruits.append(hero)
+        recruits.insert(hero, at: 0)
         save()
     }
     
@@ -49,6 +49,20 @@ class HeroListViewModel: ObservableObject {
             save()
         }
     }
+    
+    
+    //Search
+        func search(name: String) async {
+            isLoading = true
+            do {
+                let heros = try await WebService().fetchHero(searchTerm: name)
+                self.heros = heros.map(HeroViewModel.init)
+                isLoading = false
+            } catch {
+                print(error)
+                isLoading = false
+            }
+        }
     
 }
 

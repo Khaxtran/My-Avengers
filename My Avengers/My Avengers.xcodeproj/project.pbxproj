@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310FE29B27A658F8002733D4 /* loading-dots-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 310FE29A27A658F8002733D4 /* loading-dots-animation.json */; };
+		310FE29D27A65937002733D4 /* SearchingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FE29C27A65937002733D4 /* SearchingAnimationView.swift */; };
 		311BB907279D3625000B4474 /* LoadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311BB906279D3625000B4474 /* LoadingImageView.swift */; };
 		311BB909279D466C000B4474 /* loading-image.json in Resources */ = {isa = PBXBuildFile; fileRef = 311BB908279D466C000B4474 /* loading-image.json */; };
 		313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313216E327743A1B00775BB4 /* My_AvengersApp.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		310FE29A27A658F8002733D4 /* loading-dots-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-dots-animation.json"; sourceTree = "<group>"; };
+		310FE29C27A65937002733D4 /* SearchingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingAnimationView.swift; sourceTree = "<group>"; };
 		311BB906279D3625000B4474 /* LoadingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImageView.swift; sourceTree = "<group>"; };
 		311BB908279D466C000B4474 /* loading-image.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "loading-image.json"; path = "../../../../../../khatran/Downloads/loading-image.json"; sourceTree = "<group>"; };
 		313216E027743A1B00775BB4 /* My Avengers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Avengers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +223,7 @@
 			children = (
 				315FE20E277E60FF00F013A2 /* AnimationViews */,
 				315FE1FE277D120F00F013A2 /* LottieView.swift */,
+				310FE29A27A658F8002733D4 /* loading-dots-animation.json */,
 				315FE202277D1BB200F013A2 /* loading-animation.json */,
 				311BB908279D466C000B4474 /* loading-image.json */,
 			);
@@ -230,6 +235,7 @@
 			children = (
 				315FE200277D13FE00F013A2 /* LoadingView.swift */,
 				311BB906279D3625000B4474 /* LoadingImageView.swift */,
+				310FE29C27A65937002733D4 /* SearchingAnimationView.swift */,
 			);
 			path = AnimationViews;
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311BB909279D466C000B4474 /* loading-image.json in Resources */,
+				310FE29B27A658F8002733D4 /* loading-dots-animation.json in Resources */,
 				313216EB27743A1D00775BB4 /* Preview Assets.xcassets in Resources */,
 				313216E827743A1D00775BB4 /* Assets.xcassets in Resources */,
 				315FE203277D1BB200F013A2 /* loading-animation.json in Resources */,
@@ -433,6 +440,7 @@
 				31983E382775904500C71E3A /* HomeView.swift in Sources */,
 				31ED6AA027A0197800C37D17 /* NavigationBar.swift in Sources */,
 				315FE201277D13FE00F013A2 /* LoadingView.swift in Sources */,
+				310FE29D27A65937002733D4 /* SearchingAnimationView.swift in Sources */,
 				31983E3227754AF900C71E3A /* WebService.swift in Sources */,
 				31983E482778527200C71E3A /* UIImage+Extensions.swift in Sources */,
 				31983E46277851C400C71E3A /* ImageAssetTypes.swift in Sources */,
