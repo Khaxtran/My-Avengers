@@ -9,21 +9,17 @@ import Foundation
 
 @MainActor
 class HeroListViewModel: ObservableObject {
+    struct AppError: Identifiable {
+        let id = UUID().uuidString
+        let errorString: String
+    }
     
     @Published var heros = [HeroViewModel]()
     @Published var recruits = [HeroViewModel]()
+    @Published var isLoading: Bool = false
     
     let saveKey = "SaveData"
     
-    //Search
-    func search(name: String) async {
-        do {
-            let heros = try await WebService().fetchHero(searchTerm: name)
-            self.heros = heros.map(HeroViewModel.init)
-        } catch {
-            print(error)
-        }
-    }
     
     init() {
         if let data = UserDefaults.standard.data(forKey: saveKey) {
@@ -56,9 +52,9 @@ class HeroListViewModel: ObservableObject {
     
 }
 
-struct HeroViewModel: Equatable, Identifiable, Codable, Hashable {
+struct HeroViewModel: Equatable, Identifiable, Hashable, Decodable, Encodable {
     
-    let hero: Result
+    let hero: Results
     
 // GENERAL INFO
     

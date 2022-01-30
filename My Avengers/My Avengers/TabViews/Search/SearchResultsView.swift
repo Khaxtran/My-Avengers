@@ -15,36 +15,55 @@ struct SearchResultsView: View {
     
     var body: some View {
         
-        SearchingView()
-            .listStyle(.insetGrouped)
-            .searchable(text: $searchText) {
-                Text("Suggestions:")
-                    .font(.caption)
-                ForEach(suggestions, id: \.self) { suggestion in
-                    Button(action: {
-                        searchText = suggestion
-                    }, label: {
-                            Text(suggestion)
-                            .listRowSeparator(.hidden)
-                            .font(.system(size: 13, weight: .semibold))
-                            .padding(7)
-                            .background(Color.white.opacity(0.9))
-                            .foregroundColor(Color.black.opacity(0.7))
-                            .shadow(color: Color.white.opacity(0.6), radius: 10, x: 0, y: 10)
-                            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                    })
-                }
-            }
-            .onChange(of: searchText) { value in
-                Task.init(){
-                    if !value.isEmpty && value.count > 1 {
-                        await hero.search(name: value)
-                    } else {
-                        hero.heros.removeAll()
+        ZStack {
+            SearchingView()
+                .listStyle(.insetGrouped)
+                .searchable(text: $searchText) {
+                    Text("Suggestions:")
+                        .font(.caption)
+                    ForEach(suggestions, id: \.self) { suggestion in
+                        Button(action: {
+                            searchText = suggestion
+                        }, label: {
+                                Text(suggestion)
+                                .listRowSeparator(.hidden)
+                                .font(.system(size: 13, weight: .semibold))
+                                .padding(7)
+                                .background(Color.white.opacity(0.9))
+                                .foregroundColor(Color.black.opacity(0.7))
+                                .shadow(color: Color.white.opacity(0.6), radius: 10, x: 0, y: 10)
+                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                        })
                     }
                 }
+                .onChange(of: searchText) { value in
+                    Task.init(){
+                        if !value.isEmpty && value.count > 1 {
+                            await search(name: value)
+                        } else {
+                            hero.heros.removeAll()
+                        }
+                    }
+                }
+                .navigationTitle("Heros")
+            
+            if hero.isLoading {
+                ZStack {
+                    Color(.white)
+                        .opacity(0.3)
+                        .ignoresSafeArea()
+                    ProgressView("Finding heros")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color(.systemBackground))
+                        )
+                        .shadow(radius: 10)
+                }
+                
             }
-            .navigationTitle("Heros")
+        }
+        
     }
     
 }
@@ -81,12 +100,13 @@ struct RecruitButtonView: View {
 }
 
 struct SearchingView: View {
-    @EnvironmentObject var hero: HeroListViewModel
+    @EnvironmentObject private var hero: HeroListViewModel
+    @State private var heros: Hero? = nil
     @Environment(\.isSearching) var isSearching
 
       var body: some View {
         if isSearching {
-            List(hero.heros, id: \.id) { result in
+            List(heros.results, id: \.id) { result in
                 NavigationLink(result.name, destination: {
                     VStack(alignment: .center) {
                         AsyncImage(url: result.image) { phase in
@@ -147,4 +167,22 @@ struct SearchingView: View {
             LoadingView()
         }
       }
+    
+    //Search
+    func search(name: String) async {
+        
+        let apiService = WebService.shared
+        
+        apiService.getJSON(urlString: "https://superheroapi.com/api/4632428266824459/search/\(name.trimmed())") { (result: Result<Hero, WebService.NetworkError>) in
+            switch result {
+            case .success(let hero):
+                self.heros = hero
+            case .failure(let apiError):
+                switch apiError {
+                case .error(let errorString):
+                    print(errorString)
+                }
+            }
+        }
+    }
 }

@@ -8,7 +8,7 @@ import Foundation
 // MARK: - Hero
 struct Hero: Codable, Equatable, Hashable {
     let response, resultsFor: String
-    let results: [Result]
+    let results: [Results]
 
     enum CodingKeys: String, CodingKey {
         case response
@@ -18,7 +18,7 @@ struct Hero: Codable, Equatable, Hashable {
 }
 
 // MARK: - Result
-struct Result: Codable, Equatable, Identifiable, Hashable {
+struct Results: Codable, Equatable, Identifiable, Hashable {
     let id, name: String
     let powerstats: Powerstats
     let biography: Biography
