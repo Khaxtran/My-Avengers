@@ -28,6 +28,7 @@ struct HeroDetailsView_Previews: PreviewProvider {
 }
 
 struct HeroCardView: View {
+    @Environment(\.dismiss) var dismiss
     @State var heroID: HeroViewModel
     @State private var showDetails = false
     
@@ -145,7 +146,8 @@ struct HeroDetails: View {
                     Alert(title: Text("End contract?"),
                           message: Text("Are you sure you want to end contract with \(heroID.name)?"),
                           primaryButton: .default(Text("Yes"),
-                                                  action: {hero.remove(hero: heroID)}),
+                                                  action: {hero.remove(hero: heroID);
+                        HeroCardView(heroID: heroID).dismiss()}),
                           secondaryButton: .cancel(Text("No").foregroundColor(.red)))
                 })
         }
