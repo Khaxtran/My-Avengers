@@ -13,7 +13,8 @@ struct SearchResultsView: View {
     @EnvironmentObject var hero: HeroListViewModel
     @State private var heros: Hero? = nil
     @State private var searchText: String = ""
-    @State var suggestions = ["Superman", "Spiderman", "Batman", "Thor", "Shang-chi", "Flash", "Ironman"]
+    @State var suggestions = ["Superman", "Spider-man", "Batman", "Thor", "Shang-chi", "Flash", "Ironman"]
+    @State var showSuggestion = true
     
     var body: some View {
         
@@ -21,29 +22,29 @@ struct SearchResultsView: View {
             SearchingView()
                 .listStyle(.insetGrouped)
                 .searchable(text: $searchText) {
-                    Text("Suggestions:")
-                        .font(.caption)
-                    ForEach(suggestions, id: \.self) { suggestion in
-                        Button(action: {
-                            searchText = suggestion
-                        }, label: {
-                            Text(suggestion)
-                                .listRowSeparator(.hidden)
-                                .font(.system(size: 13, weight: .semibold))
-                                .padding(7)
-                                .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color.black.opacity(0.7))
-                                .shadow(color: Color.white.opacity(0.6), radius: 10, x: 0, y: 10)
-                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        })
+                    if showSuggestion {
+                        Text("Suggestions:")
+                            .font(.caption)
+                        
+                        ForEach(suggestions, id: \.self) { suggestion in
+                            Button(action: {
+                                searchText = suggestion
+                            }, label: {
+                                Label(suggestion, systemImage: "magnifyingglass.circle.fill")
+                                    .symbolRenderingMode(.hierarchical)
+                                    .foregroundColor(.primary)
+                            })
+                        }
                     }
                 }
                 .onChange(of: searchText) { value in
                     Task.init(){
                         if !value.isEmpty && value.count > 1 {
+                            showSuggestion = false
                             await hero.search(name: value)
                         } else {
                             hero.heros.removeAll()
+                            showSuggestion = true
                         }
                     }
                 }

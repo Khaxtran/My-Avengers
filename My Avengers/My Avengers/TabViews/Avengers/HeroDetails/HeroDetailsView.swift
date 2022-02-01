@@ -66,7 +66,7 @@ struct HeroCardView: View {
                     HeroDetails(heroID: heroID)
                 }
             Text(heroID.name)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: 155, alignment: .leading)
                 .font(.system(size: 16, weight: .regular))
                 .padding(.horizontal, 8)
         }

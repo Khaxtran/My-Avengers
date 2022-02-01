@@ -30,9 +30,8 @@ struct RecruitView: View {
                                             GridItem(.flexible(minimum: 100, maximum: 200))],
                                   spacing: 16,
                                   content: {HeroDetailsView()})
-                            .padding(.horizontal, 12)
                     }
-                    .padding(.top, 150)
+                    .padding(.top, 120)
             }
             .overlay(AvengersNavigationBar(heroCount: "\(hero.recruits.count)")
                         .frame(height: 108, alignment: .bottom)
