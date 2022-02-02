@@ -34,6 +34,14 @@ struct HeroCardView: View {
     
     var body: some View {
         
+        let combat = Int(heroID.combat) ?? 0
+        let intelligence = Int(heroID.intelligence) ?? 0
+        let strength = Int(heroID.strength) ?? 0
+        let power = Int(heroID.power) ?? 0
+        let speed = Int(heroID.speed) ?? 0
+        let durability = Int(heroID.durability) ?? 0
+        let overall = (intelligence + power + speed + strength + durability + combat)/6
+        
         VStack {
             Button(action: {
                 showDetails.toggle()
@@ -66,10 +74,14 @@ struct HeroCardView: View {
                 .sheet(isPresented: $showDetails) {
                     HeroDetails(heroID: heroID)
                 }
-            Text(heroID.name)
-                .frame(maxWidth: 155, alignment: .leading)
-                .font(.system(size: 16, weight: .regular))
-                .padding(.horizontal, 8)
+            HStack {
+                Text(heroID.name)
+                    .frame(maxWidth: 155, alignment: .leading)
+                    .font(.system(size: 16, weight: .regular, design: .rounded))
+                    .padding(.horizontal, 8)
+                
+                Text("\(overall)")
+            }
         }
     }
 }

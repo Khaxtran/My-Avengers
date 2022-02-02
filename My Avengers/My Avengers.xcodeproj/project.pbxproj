@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		310FE29B27A658F8002733D4 /* loading-dots-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 310FE29A27A658F8002733D4 /* loading-dots-animation.json */; };
 		310FE29D27A65937002733D4 /* SearchingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FE29C27A65937002733D4 /* SearchingAnimationView.swift */; };
+		310FE29F27AA0FA1002733D4 /* ConvertHeroStatsToIntegers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FE29E27AA0FA1002733D4 /* ConvertHeroStatsToIntegers.swift */; };
+		310FE2A127AA824D002733D4 /* AvengersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FE2A027AA824D002733D4 /* AvengersView.swift */; };
 		311BB907279D3625000B4474 /* LoadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311BB906279D3625000B4474 /* LoadingImageView.swift */; };
 		311BB909279D466C000B4474 /* loading-image.json in Resources */ = {isa = PBXBuildFile; fileRef = 311BB908279D466C000B4474 /* loading-image.json */; };
 		313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313216E327743A1B00775BB4 /* My_AvengersApp.swift */; };
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		310FE29A27A658F8002733D4 /* loading-dots-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-dots-animation.json"; sourceTree = "<group>"; };
 		310FE29C27A65937002733D4 /* SearchingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingAnimationView.swift; sourceTree = "<group>"; };
+		310FE29E27AA0FA1002733D4 /* ConvertHeroStatsToIntegers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertHeroStatsToIntegers.swift; sourceTree = "<group>"; };
+		310FE2A027AA824D002733D4 /* AvengersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengersView.swift; sourceTree = "<group>"; };
 		311BB906279D3625000B4474 /* LoadingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImageView.swift; sourceTree = "<group>"; };
 		311BB908279D466C000B4474 /* loading-image.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "loading-image.json"; path = "../../../../../../khatran/Downloads/loading-image.json"; sourceTree = "<group>"; };
 		313216E027743A1B00775BB4 /* My Avengers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Avengers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +205,7 @@
 			children = (
 				3157C5A6277C3C7F00056A67 /* HeroDetails */,
 				31983E3B2775A34400C71E3A /* RecruitView.swift */,
+				310FE2A027AA824D002733D4 /* AvengersView.swift */,
 			);
 			path = Avengers;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			children = (
 				31983E26277474DA00C71E3A /* HeroModel.swift */,
 				31983E3327754FB600C71E3A /* HeroListViewModel.swift */,
+				310FE29E27AA0FA1002733D4 /* ConvertHeroStatsToIntegers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -455,9 +461,11 @@
 				311BB907279D3625000B4474 /* LoadingImageView.swift in Sources */,
 				31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */,
 				313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */,
+				310FE2A127AA824D002733D4 /* AvengersView.swift in Sources */,
 				31983E36277586D800C71E3A /* String+Extensions.swift in Sources */,
 				3157C5B0277C6DDF00056A67 /* StatsIconView.swift in Sources */,
 				3157C5A8277C3CC000056A67 /* HeroAppearanceView.swift in Sources */,
+				310FE29F27AA0FA1002733D4 /* ConvertHeroStatsToIntegers.swift in Sources */,
 				31983E24277474A300C71E3A /* HeroFetcher.swift in Sources */,
 				31983E3427754FB600C71E3A /* HeroListViewModel.swift in Sources */,
 				31983E27277474DA00C71E3A /* HeroModel.swift in Sources */,

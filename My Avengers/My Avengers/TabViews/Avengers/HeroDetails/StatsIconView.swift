@@ -9,8 +9,8 @@ import SwiftUI
 
 struct StatsIconView: View {
     @State var icon: String
-    @State var iconTitle: String
-    @State var iconStats: String
+    @State var title: String
+    @State var stats: Int
     @State var backgroundColor1: Color
     @State var backgroundColor2: Color
     
@@ -24,7 +24,7 @@ struct StatsIconView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 40, height: 40)
-                        Text(self.iconStats)
+                        Text("\(self.stats)")
                             .font(.system(size: 15, weight: .bold))
                             .blendMode(.overlay)
                     }
@@ -39,10 +39,10 @@ struct StatsIconView: View {
                     ]), startPoint: .leading, endPoint: .bottomTrailing
                 ).opacity(0.6))
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .shadow(color: Color.black.opacity(0.2), radius: 1, x: 4, y: 4)
+                .shadow(color: Color.black.opacity(0.2), radius: 1, x: 2, y: 2)
                 .foregroundColor(.white)
                 
-                Text(self.iconTitle)
+                Text(self.title)
                     .font(.system(size: 15, weight: .regular))
                     .foregroundColor(Color.black)
                     .opacity(0.7)

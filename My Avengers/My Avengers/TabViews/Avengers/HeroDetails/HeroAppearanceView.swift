@@ -64,7 +64,7 @@ struct HeroAppearanceView: View {
             ]), startPoint: .leading, endPoint: .bottomTrailing
         ).opacity(0.6))
         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-        .shadow(color: Color.black.opacity(0.4), radius: 1, x: 0, y: 5)
+        .shadow(color: Color.black.opacity(0.4), radius: 5, x: 5, y: 5)
         .foregroundColor(.white)
     }
 }
