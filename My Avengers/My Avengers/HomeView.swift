@@ -12,7 +12,7 @@ struct HomeView: View {
     
     var body: some View {
         TabView {
-            RecruitView()
+            AvengersView()
                 .tabItem {
                     Label("Avengers", systemImage: "person.2.crop.square.stack")
                 }

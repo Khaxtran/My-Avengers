@@ -18,6 +18,7 @@
 		313216E827743A1D00775BB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216E727743A1D00775BB4 /* Assets.xcassets */; };
 		313216EB27743A1D00775BB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313216EA27743A1D00775BB4 /* Preview Assets.xcassets */; };
 		31453FD12799433A000290AF /* Swipe+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31453FD02799433A000290AF /* Swipe+Extensions.swift */; };
+		3155E68B27ABBE3E00B38D1B /* LoadingHeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3155E68A27ABBE3E00B38D1B /* LoadingHeroImageView.swift */; };
 		3157C59F277BE5B200056A67 /* HeroDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C59E277BE5B200056A67 /* HeroDetailsView.swift */; };
 		3157C5A5277C0ED800056A67 /* SmoothGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 3157C5A4277C0ED800056A67 /* SmoothGradient */; };
 		3157C5A8277C3CC000056A67 /* HeroAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3157C5A7277C3CC000056A67 /* HeroAppearanceView.swift */; };
@@ -77,6 +78,7 @@
 		313216F027743A1D00775BB4 /* My AvengersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313216FA27743A1D00775BB4 /* My AvengersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My AvengersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31453FD02799433A000290AF /* Swipe+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swipe+Extensions.swift"; sourceTree = "<group>"; };
+		3155E68A27ABBE3E00B38D1B /* LoadingHeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHeroImageView.swift; sourceTree = "<group>"; };
 		3157C59E277BE5B200056A67 /* HeroDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsView.swift; sourceTree = "<group>"; };
 		3157C5A7277C3CC000056A67 /* HeroAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAppearanceView.swift; sourceTree = "<group>"; };
 		3157C5A9277C41D700056A67 /* HeroBiographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroBiographyView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				313216E327743A1B00775BB4 /* My_AvengersApp.swift */,
 				31983E372775904500C71E3A /* HomeView.swift */,
 				3157C5A0277BE69100056A67 /* TabViews */,
+				3155E68927ABBE1100B38D1B /* SupportViews */,
 				31ED6AA127A0199000C37D17 /* Navigation */,
 				31983E25277474CD00C71E3A /* Model */,
 				31983E2127746EF800C71E3A /* Fetcher */,
@@ -170,6 +173,14 @@
 				313216EA27743A1D00775BB4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3155E68927ABBE1100B38D1B /* SupportViews */ = {
+			isa = PBXGroup;
+			children = (
+				3155E68A27ABBE3E00B38D1B /* LoadingHeroImageView.swift */,
+			);
+			path = SupportViews;
 			sourceTree = "<group>";
 		};
 		3157C5922779417700056A67 /* Utils */ = {
@@ -458,6 +469,7 @@
 				31453FD12799433A000290AF /* Swipe+Extensions.swift in Sources */,
 				315FE1FF277D120F00F013A2 /* LottieView.swift in Sources */,
 				315FE205277D289500F013A2 /* SearchResultsView.swift in Sources */,
+				3155E68B27ABBE3E00B38D1B /* LoadingHeroImageView.swift in Sources */,
 				311BB907279D3625000B4474 /* LoadingImageView.swift in Sources */,
 				31983E2027746EEA00C71E3A /* GenericFetcher.swift in Sources */,
 				313216E427743A1B00775BB4 /* My_AvengersApp.swift in Sources */,
