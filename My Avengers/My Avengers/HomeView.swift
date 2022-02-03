@@ -16,6 +16,10 @@ struct HomeView: View {
                 .tabItem {
                     Label("Avengers", systemImage: "person.2.crop.square.stack")
                 }
+            RecruitView()
+                .tabItem {
+                    Label("Avengers", systemImage: "person.2.crop.square.stack")
+                }
             SearchView()
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")

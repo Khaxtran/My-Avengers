@@ -16,25 +16,24 @@ struct AvengersView: View {
         ZStack {
             GeometryReader { geo in
                 
-                LinearGradient(colors: [Color.cyan.opacity(0.7), Color.purple.opacity(0.3)],
+                LinearGradient(colors: [Color.cyan.opacity(0.7), Color.black.opacity(0.1)],
                                startPoint: .topLeading,
                                endPoint: .bottomTrailing)
                 
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
                     .frame(width: geo.size.width, height: 500)
-                    .foregroundStyle(LinearGradient(colors: [Color.purple.opacity(0.6), Color.mint.opacity(0.2)],
-                                                    startPoint: .top,
-                                                    endPoint: .leading))
+                    .foregroundColor(Color.blue.opacity(0.3))
                     .blur(radius: 20)
                     .offset(x: 300)
                     .rotationEffect(.degrees(30))
                 
                 Circle()
                     .frame(width: 300)
-                    .foregroundColor(Color.blue.opacity(0.3))
+                    .foregroundColor(Color.green.opacity(0.3))
                     .blur(radius: 10)
                     .offset(x:-100, y: -150)
             }
+            .edgesIgnoringSafeArea(.all)
             
             ScrollView(showsIndicators: false) {
                     ForEach(hero.recruits, id: \.id) { heroID in
@@ -42,9 +41,7 @@ struct AvengersView: View {
                     }
                     .padding()
             }
-            .padding(.top, 60)
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -71,13 +68,11 @@ struct SmallCardView: View {
                     VStack(alignment: .center) {
                         LoadingHeroImageView(heroImage: heroID.image)
                     }
-                    .shadow(color: Color(.black).opacity(0.2), radius: 2, x: 2, y: 2)
                     Spacer()
                     VStack(alignment: .center) {
                         Text("\(heroID.name)".uppercased())
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .font(.system(size: 18, weight: .bold))
                     }
-                    .shadow(color: Color(.black).opacity(0.1), radius: 0.5, x: 2, y: 2)
                     Spacer()
                     VStack(alignment: .center) {
                         Text("89")
@@ -86,19 +81,19 @@ struct SmallCardView: View {
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                     }
                     .foregroundColor(.green)
-                    .shadow(color: Color(.black).opacity(0.1), radius: 0.5, x: 2, y: 2)
                     
                 }
-                .padding()
+                .padding(.horizontal)
+                .padding(.vertical, 10)
                 .frame(maxWidth: .infinity, alignment: .center)
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
             })
             
             if showDetails {
                 //Medium card
                 withAnimation {
                     MediumCardView(heroID: heroID)
-                        .transition(.asymmetric(insertion: .offset(y: -15), removal: .offset(y: -15)))
+                        .transition(.asymmetric(insertion: .scale, removal: .opacity))
                 }
             }
         }
@@ -115,11 +110,11 @@ struct MediumCardView: View {
                 .font(.headline)
                 .padding()
             VStack(alignment: .leading) {
-                Text("Fullname: Peter Parker")
-                    .font(.system(size: 16, weight: .regular, design: .rounded))
+                Text("Fullname: \(heroID.fullName)")
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
                     .padding(.bottom, 2)
-                Text("Race: Human")
-                    .font(.system(size: 16, weight: .regular, design: .rounded))
+                Text("Race: \(heroID.race)")
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
             }
             .padding([.horizontal, .bottom])
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -156,12 +151,12 @@ struct MediumCardView: View {
                     })
                 }
             }
-            .padding()
-            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .padding()
+            .padding(10)
+            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .padding(.horizontal, 25)
+            .padding(.vertical, 10)
         }
         .frame(maxWidth: .infinity, alignment: .center)
-        .foregroundColor(Color(.black).opacity(0.8))
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 }
